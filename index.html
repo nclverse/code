@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to NCLVerse Code</title>
+    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section id="container">
+      <section id="sidebar"><nav id="main-nav">
+  <header id="title">
+    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <div class="titles">
+      <span class="verse-title">NCL<strong>Verse</strong></span>
+      <ul class="docs-site">
+        <li><a class="active" href="http://nclverse.github.io/Code">Code</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="category">
+    <header class="category-title"><h1>apps<span class="count">0 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>utilities<span class="count">221 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">221 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">83</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">91</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      </li>
+      </ul>
+  </div>
+
+</nav></section>
+      <section id="read-area"><article class="post">
+  <section class="content">
+<div id="outline-container-sec-1" class="outline-1 welcome">
+<h1 id="sec-1">Welcome to NCLVerse Code</h1>
+<div class="outline-text-1" id="text-1">
+
+<p>
+Here you'll find the source code for all the applications in NCLVerse.
+For quick start, choose one of the applications from the sidebar and you are good to go.
+</p>
+
+
+<section class="stranded">
+<div class="doc-site">
+<h2><a href="http://nclverse.github.io/docs">Where AM I?</a></h2>
+    <p>If you are a casual websurfer and it's your first time around in
+    the NCLVerse, it's totally normal to feel a bit lost in the space.
+    Try reading about this universe on the documentation websites that
+    paints the big picture of the overall ecosystem.</p>
+</div>
+   
+<div class="doc-site">
+<h2><a href="http://nclverse.github.io/design">Design Language</a></h2>
+    <p>If you are a designer and is interested in knowing about the
+    visual language that is used for communicating with the user,
+    check the Design website.</p>
+    </div>
+
+<div class="doc-site">
+<h2><a href="http://nclverse.github.io/dissertation">Dissertation</a></h2>
+    <p>If you are more interested in the theoretical grounding of this
+    project, have a dekko at the dissertation websites which
+    describes the metaphors and principles that guided the creation of NCLVerse.</p>
+    </div>
+
+</section>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-2 doc-site">
+<h2 id="sec-1-1">What can a developer find here?</h2>
+<div class="outline-text-2" id="text-1-1">
+<p>
+If you are a software developer who is around here for the first
+time, consider reading the following guidelines for a fuller
+experiences.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-3">
+<h3 id="sec-1-1-1">An Ecosystem in Lisp</h3>
+<div class="outline-text-3" id="text-1-1-1">
+<p>
+All of NCLVerse is coded in a dialect of <a href="http://xkcd.com">Lisp</a> known as
+Clojure. This decision was driven by the fact that coding in Clojure allowed
+me to concentrate on both the front-end and back-end with a single
+language. This means significantly reduced cognitive overload from
+a development perspective and I'll be honest, I wanted to see
+why everyone was marketing functional programming as the next best thing.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-3">
+<h3 id="sec-1-1-2">Literate Programming</h3>
+<div class="outline-text-3" id="text-1-1-2">
+<p>
+All the code is written in literate programming style. This means
+that I try(and fail) to tell a story through my codebase. The
+story changes when I refactor the codebase.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-3" class="outline-3">
+<h3 id="sec-1-1-3">Code Organization</h3>
+<div class="outline-text-3" id="text-1-1-3">
+<p>
+The codebases are separated based on the namespaces of the files. Each
+catering to a certain concern.
+</p>
+
+<p>
+As for the organization, the style here mimics that of marginalia with
+a large margin. But where it diverges is that it has more organization
+when it comes to the code base.
+</p>
+
+<p>
+Everything is segragated into sections with an overview system diagram
+presented initially. As mentioned in the book Thinking in Systems, I
+found such diagrams to vastly improve the comprehensibility of the
+system. Please consult the hairball section of actual dissertation for
+more about the design decisions.
+</p>
+
+<p>
+Also tags where I thought there is more to do with the codebase is
+labelled as having TODO tags and the code that I think to have very
+bade form labelled as SMELL.
+</p>
+
+<p>
+Most of the stuff is in a state of flux, so a versioning system is
+followed:
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-2">
+<h2 id="sec-1-2">Code Statistics</h2>
+<div class="outline-text-2" id="text-1-2">
+<p>
+Lines Written:
+Lines Deleted:
+Time Spent:
+</p>
+</div>
+</div>
+</div>
+</section>
+
+</article></section>
+    </section>
+  </body>
+
+</html>

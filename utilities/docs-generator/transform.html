@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Namespaces</title>
+    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section id="container">
+      <section id="sidebar"><nav id="main-nav">
+  <header id="title">
+    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <div class="titles">
+      <span class="verse-title">NCL<strong>Verse</strong></span>
+      <ul class="docs-site">
+        <li><a class="active" href="http://nclverse.github.io/Code">Code</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="category">
+    <header class="category-title"><h1>apps<span class="count">0 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>utilities<span class="count">221 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link active">Docs Generator<span class="count">221 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">83</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">91</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      </li>
+      </ul>
+  </div>
+
+</nav></section>
+      <section id="read-area"><article class="post">
+  <section class="content">
+<div id="outline-container-sec-1" class="outline-1">
+<h1 id="sec-1">Namespaces</h1>
+<div class="outline-text-1" id="text-1">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(ns docs-gen.transform
+  (:require [prone.debug :refer [debug]])
+  (:use net.cgrand.enlive-html))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-1">
+<h1 id="sec-2">Layout Helpers</h1>
+<div class="outline-text-1" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-2">
+<h2 id="sec-2-1">Build Drop Down</h2>
+<div class="outline-text-2" id="text-2-1">
+<p>
+Builds the site dropdown
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn build-drop-down [site sites]
+(let [site (clojure.string/capitalize site)
+      sites (map clojure.string/capitalize sites)]
+  ;Inorder to maintain site always as the first element in the row
+  ;Alert: Pretty hacky
+  (clone-for [s (into [site] (remove #(= % site) sites))]
+	     [:a] (if (= s site) (do-&gt; (add-class "active")
+				       (set-attr :href (str "/" s))
+					   (content s))
+		      (do-&gt; (set-attr :href (str "/" s)) (content s))))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-1">
+<h1 id="sec-3">Enlive Helpers</h1>
+<div class="outline-text-1" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-2">
+<h2 id="sec-3-1">Update Attribute Helper</h2>
+<div class="outline-text-2" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn update-attr [attr f &amp; args]
+  (fn [node]
+    (if (get (:attrs node) attr)
+    (apply update-in node [:attrs attr] f args) node)))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-1">
+<h1 id="sec-4">Transform Inline URLs</h1>
+<div class="outline-text-1" id="text-4">
+<p>
+Attach root site to inline URLs
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn url-transform [root site url]
+(cond
+(.startsWith url "/") (str root url)
+(.startsWith url "./") (str root "/" site (clojure.string/replace-first url #"." ""))
+(.startsWith url "http") url
+:else "Malformed"))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn attach-root [root site page]
+(let [update-fn #(update-attr % (fn [current] (url-transform root site current)))]
+(apply str (emit* (at (html-resource (java.io.StringReader. page))
+		      [:a] (update-fn :href)
+		      [:link] (update-fn :href)
+		      [:img] (update-fn :src))))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-1">
+<h1 id="sec-5">Navigation Helpers</h1>
+<div class="outline-text-1" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn matches [k v m] (filter #(= (k %) v) m))
+
+(defn sum-wc [k v t-map]
+  {:pre [(every? #(contains? % :loc) t-map)]}
+  (reduce + (map :loc (matches k v t-map))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-1">
+<h1 id="sec-6">Check for presence of all</h1>
+<div class="outline-text-1" id="text-6">
+<p>
+Duct tape functions.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(def clean-numbering #(clojure.string/replace % #"\d+-" ""))
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-0-1" class="outline-3">
+<h3 id="sec-6-0-1">Format Navigation Links</h3>
+<div class="outline-text-3" id="text-6-0-1">
+<p>
+Helper functions to strip all numbers followed by a single hyphen. Used to format the
+URLs which have Kebab case.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn format-nav-links [word]
+  (clojure.string/join " " (map clojure.string/capitalize (clojure.string/split (clean-numbering word) #"-"))))
+
+(defn rebuild-url [site s]
+(let [format #(str "/" site "/" (apply str %) ".html")]
+(format (interpose "/" (map clean-numbering ((juxt :category :title :subtitle) s))))))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn has-all-keys? [nav-entry]
+(let [{:keys [category title subtitle]} nav-entry]
+(every? #(not (nil? %)) (list category title subtitle))))
+
+(defn leaf-nodes [nav]
+(filter has-all-keys? nav))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-1">
+<h1 id="sec-7">Build Subtitles</h1>
+<div class="outline-text-1" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn build-subtitles [titles title current-subtitle site]
+  (let [subtitles (matches :title title titles)]
+    (clone-for [s subtitles]
+	       [:li :a.subtitle-link] (do-&gt; (set-attr :href (rebuild-url site s))
+					    (if (= (:subtitle s) current-subtitle)
+					    (update-attr :class
+					    (fn [&amp; args]
+					    (apply str (interpose " " args))) "active") identity)
+					    (content (format-nav-links (:subtitle s))
+						     (html [:span.count (str (:loc s))]))))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-1">
+<h1 id="sec-8">Build Titles</h1>
+<div class="outline-text-1" id="text-8">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn highlight-link [link-title title]
+(if (= link-title title) (update-attr :class (fn [&amp; args] (apply str (interpose " " args))) "active") identity))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn build-titles [link c titles nav site]
+    (clone-for [t (distinct titles)]
+	       [:li :a.title-link] (do-&gt; (content (format-nav-links t)
+						   (html [:span.count (str (sum-wc :title t nav) " LOC")]))
+						   (highlight-link (:title link) t))
+	       [:li :ul.subtitles] (build-subtitles nav t (:subtitle link) site)))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-1">
+<h1 id="sec-9">Build Categories</h1>
+<div class="outline-text-1" id="text-9">
+<p>
+Selecting only the valid categories. This means that index.html in
+the root directory and such other ones without a leaf node will be omitted.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn build-categories [link nav site]
+  (let [leaves (leaf-nodes nav)
+	categories (map :category leaves)]
+  (clone-for [c (distinct categories)]
+	     [:header.category-title :h1] (content c (html [:span.count (str (sum-wc :category c nav) " LOC")]))
+	     [:ul.titles] (build-titles link c (map :title (matches :category c nav)) nav site))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-1">
+<h1 id="sec-10">Layout</h1>
+<div class="outline-text-1" id="text-10">
+<p>
+Accepts a page with meta data of the structure.
+</p>
+</div>
+
+<div id="outline-container-sec-10-1" class="outline-2">
+<h2 id="sec-10-1">Article</h2>
+<div class="outline-text-2" id="text-10-1">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defsnippet article "templates/article.html" [:article] [entry]
+  [:article :.content] (html-content entry))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10-2" class="outline-2">
+<h2 id="sec-10-2">Sidebar</h2>
+<div class="outline-text-2" id="text-10-2">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defsnippet sidebar "templates/sidebar.html" [:nav] [current-url site nav page]
+  [:img.site-logo] (set-attr :src "./img/logo.svg")
+  [:ul.docs-site :li] (build-drop-down site (:sites nav))
+  [:div.category] (build-categories current-url nav site))
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(deftemplate layout "templates/layout.html" [site nav page]
+  [:title] (content (:title (:meta page)))
+  [:#sidebar]  (content (sidebar (:url page) site nav page))
+  [:#container :#read-area] (content (article (:page page))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10-3" class="outline-2">
+<h2 id="sec-10-3">Transform Page</h2>
+<div class="outline-text-2" id="text-10-3">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn transform-page [root site nav page]
+    (attach-root root site (apply str (layout site nav page))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</article></section>
+    </section>
+  </body>
+
+</html>

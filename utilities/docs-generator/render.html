@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Namespaces</title>
+    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section id="container">
+      <section id="sidebar"><nav id="main-nav">
+  <header id="title">
+    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <div class="titles">
+      <span class="verse-title">NCL<strong>Verse</strong></span>
+      <ul class="docs-site">
+        <li><a class="active" href="http://nclverse.github.io/Code">Code</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="category">
+    <header class="category-title"><h1>apps<span class="count">0 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>utilities<span class="count">221 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link active">Docs Generator<span class="count">221 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">83</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">91</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      </li>
+      </ul>
+  </div>
+
+</nav></section>
+      <section id="read-area"><article class="post">
+  <section class="content">
+<div id="outline-container-sec-1" class="outline-1">
+<h1 id="sec-1">Namespaces</h1>
+<div class="outline-text-1" id="text-1">
+<p>
+Usage of namespaces:
+</p>
+
+<p>
+Stasis: collecting directories and files.
+Ring middleware: Serving the correct content type.
+Prone Debug: Debugging Clojure code in the browser.
+Java Shell: Running Emacs to convert org files to HTML.
+Enlive: Metadata collection.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(ns docs-gen.render
+  (:require [stasis.core :as stasis]
+	    [ring.middleware.content-type :refer [wrap-content-type]]
+	    [clojure.java.shell :refer [sh]]
+	    [prone.debug :refer [debug]]
+	    [docs-gen.collect :as collect]
+	    [docs-gen.transform :as transform])
+  (:use net.cgrand.enlive-html))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-1">
+<h1 id="sec-2">Collector functions</h1>
+<div class="outline-text-1" id="text-2">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn collect-vals [key config] 
+(let [vals (map key (:sites config))]
+(when (every? (complement nil?) vals) vals)))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-1">
+<h1 id="sec-3">Configuration</h1>
+<div class="outline-text-1" id="text-3">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(def config {
+:mode :export
+:render-mode :full
+:serve {:root "http://localhost:3000"}
+:export {:root "http://nclverse.github.io"}
+ :output "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps"
+:sites [
+{:site "code"
+:metadata [:loc]
+ :source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/code/source"
+ }
+;{:site "thesis"
+;:metadata [:word-count]
+;:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/thesis/source"}
+;{:site "design"
+;:metadata []
+;:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/design/source"
+;}
+;{:site "help"
+;:metadata [:topics]
+;:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/help/source"
+;:output "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps"}
+]})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-1">
+<h1 id="sec-4">URL Helpers</h1>
+<div class="outline-text-1" id="text-4">
+<p>
+Replaces .org with given string
+</p>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-5" class="outline-1">
+<h1 id="sec-5">Org Converter</h1>
+<div class="outline-text-1" id="text-5">
+<p>
+We convert each org page to HTML using Emacs.
+</p>
+</div>
+<div id="outline-container-sec-5-0-1" class="outline-3">
+<h3 id="sec-5-0-1">Org to HTML</h3>
+<div class="outline-text-3" id="text-5-0-1">
+<p>
+This uses a script stored inside the resources directory to
+convert org file to HTML using the config options specified per
+file. Need to decide if a global org file config makes sense.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn org-&gt;html [org-content]
+"Prerequisite: Emacs with Org-Mode installed.
+Converts given org file to html."
+(:out (sh "emacs" "--script" "resources/scripts/org-to-html.el" org-content)))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-1">
+<h1 id="sec-6">Metadata Collection Helpers</h1>
+<div class="outline-text-1" id="text-6">
+</div><div id="outline-container-sec-6-0-1" class="outline-3">
+<h3 id="sec-6-0-1">Word Count</h3>
+<div class="outline-text-3" id="text-6-0-1">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn word-count [entry]
+   (let [nodes (select-nodes* (html-snippet entry) [text-node])
+   text (apply str nodes)]
+   (count (re-seq #"\w+" (.toLowerCase text)))))
+
+(defn loc [entry]
+   (let [nodes (select-nodes* (select (html-snippet entry) [:pre]) [text-node])
+   text (apply str nodes)]
+   (count (re-seq #"\n" text))))
+</pre>
+</div>
+
+<p>
+#+ATTR<sub>HTML</sub> :class smell
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-0-2" class="outline-3">
+<h3 id="sec-6-0-2">URL Components</h3>
+<div class="outline-text-3" id="text-6-0-2">
+<p>
+Pretty contrived right now but supports all the current
+documentation sites. Better to make this support. Need to
+change this to support arbitrary amount of nesting. 5 seems like
+a good limit if arbitrary nesting is a bad idea. Need to reflect
+on this problem further.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn url-components [url]
+  (zipmap [:category :title :subtitle] (filter not-empty (clojure.string/split url #"/"))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-0-3" class="outline-3">
+<h3 id="sec-6-0-3">Find Title</h3>
+<div class="outline-text-3" id="text-6-0-3">
+<p>
+Gets the title of the converted HTML page.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn title [x]
+  (first
+   (select
+   (html-snippet x) [:h1 text-node])))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-0-4" class="outline-3">
+<h3 id="sec-6-0-4">Weave metadata</h3>
+<div class="outline-text-3" id="text-6-0-4">
+<p>
+Collect metadata from HTML pages
+Creates a map of the form:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn collect-meta-data [url page] {:page page :url (url-components url) :meta {:title (title page)}})
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-1">
+<h1 id="sec-7">Renderers</h1>
+<div class="outline-text-1" id="text-7">
+<p>
+Recombining the pages that have been transformed and rendering them.
+Comes in two flavours. One with meta data collection (involves
+expensive computation, slows down the generator considerably) and one
+without(quick).
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn quick-render [root site _ pages]
+(map #(transform/transform-page root site [] (collect-meta-data site (org-&gt;html %))) pages))
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-7-0-1" class="outline-3">
+<h3 id="sec-7-0-1">Render with Meta</h3>
+<div class="outline-text-3" id="text-7-0-1">
+<p>
+Weaves the metadata of all pages with the current page.
+Gives out a map of url with the pages weaved with meta data.
+</p>
+
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn nav-element [url page]
+(let [components (url-components url)
+count (loc page)
+      sites (collect-vals :site config)]
+(into components {:loc count :sites sites})))
+
+(defn nav-builder [root site urls pages]
+(let [nav (map nav-element urls pages)]
+(sort-by #(vec (map % [:title :subtitle])) nav)))
+
+(defn full-render [root site urls pages]
+(let [html-pages (map org-&gt;html pages)
+pages-with-meta-data (map collect-meta-data urls html-pages)
+nav (nav-builder root site urls html-pages)]
+  (map (partial transform/transform-page root site nav) pages-with-meta-data)))
+
+(defn renderer [root site mode]
+({:quick #(quick-render root site %1 %2)
+  :full #(full-render root site %1 %2)} mode))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-1">
+<h1 id="sec-8">Build Site Map</h1>
+<div class="outline-text-1" id="text-8">
+<p>
+Builds a website.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn build-site [root render-mode {:keys [site metadata source output]}]
+  (let [render-fn (renderer root site render-mode)
+  assets (collect/collect-all site source render-fn)]
+assets))
+</pre>
+</div>
+
+
+<p>
+The progression is thus.
+</p>
+
+<p>
+Collect -&gt; Transform -&gt; Render
+</p>
+
+<p>
+The first two stages are done here.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-1">
+<h1 id="sec-9">Collecting Files</h1>
+<div class="outline-text-1" id="text-9">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn collect-files [{:keys [sites mode render-mode] :as config}]
+  (let [root (:root (mode config))]
+    (stasis/merge-page-sources (apply merge-with into (map #(build-site root render-mode %) sites)))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-1">
+<h1 id="sec-10">Finale</h1>
+<div class="outline-text-1" id="text-10">
+<p>
+Servers or exports the pages. A multimethod to either render or export based on the configuration.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defmulti render :mode)
+
+(defmethod render :serve [config]
+(wrap-content-type (stasis/serve-pages (collect-files config))))
+
+(defmethod render :export [config]
+  (stasis/export-pages (collect-files config) (:output config)))
+
+(def app (render config))
+</pre>
+</div>
+</div>
+</div>
+</section>
+
+</article></section>
+    </section>
+  </body>
+
+</html>
