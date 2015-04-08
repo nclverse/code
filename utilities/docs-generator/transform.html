@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Namespaces</title>
-    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <section id="container">
       <section id="sidebar"><nav id="main-nav">
   <header id="title">
-    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <img class="site-logo" alt="logo" src="/code/img/logo.svg" />
     <div class="titles">
       <span class="verse-title">NCL<strong>Verse</strong></span>
       <ul class="docs-site">
-        <li><a class="active" href="http://nclverse.github.io/Code">Code</a></li>
+        <li><a class="active" href="/code">Code</a></li><li><a href="/dissertation">Dissertation</a></li><li><a href="/design">Design</a></li><li><a href="/help">Help</a></li>
       </ul>
     </div>
   </header>
@@ -21,21 +21,21 @@
     <header class="category-title"><h1>apps<span class="count">0 LOC</span></h1></header>
     <ul class="titles">
       <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">221 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">243 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link active">Docs Generator<span class="count">221 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">83</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">91</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link active">Docs Generator<span class="count">243 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/render.html">Render<span class="count">114</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
     <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
     <ul class="titles">
       <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -69,15 +69,14 @@ Builds the site dropdown
 <div class="org-src-container">
 
 <pre class="src src-clojure">(defn build-drop-down [site sites]
-(let [site (clojure.string/capitalize site)
-      sites (map clojure.string/capitalize sites)]
+(let [websites (list "code" "dissertation")]
   ;Inorder to maintain site always as the first element in the row
   ;Alert: Pretty hacky
   (clone-for [s (into [site] (remove #(= % site) sites))]
 	     [:a] (if (= s site) (do-&gt; (add-class "active")
 				       (set-attr :href (str "/" s))
-					   (content s))
-		      (do-&gt; (set-attr :href (str "/" s)) (content s))))))
+				       (content (clojure.string/capitalize s)))
+		      (do-&gt; (set-attr :href (str "/" s)) (content (clojure.string/capitalize s)))))))
 </pre>
 </div>
 </div>
@@ -285,9 +284,9 @@ Accepts a page with meta data of the structure.
 <div class="outline-text-2" id="text-10-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defsnippet sidebar "templates/sidebar.html" [:nav] [current-url site nav page]
+<pre class="src src-clojure">(defsnippet sidebar "templates/sidebar.html" [:nav] [current-url site sites nav page]
   [:img.site-logo] (set-attr :src "./img/logo.svg")
-  [:ul.docs-site :li] (build-drop-down site (:sites nav))
+  [:ul.docs-site :li] (build-drop-down site sites)
   [:div.category] (build-categories current-url nav site))
 </pre>
 </div>
@@ -295,9 +294,9 @@ Accepts a page with meta data of the structure.
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(deftemplate layout "templates/layout.html" [site nav page]
+<pre class="src src-clojure">(deftemplate layout "templates/layout.html" [site sites nav page]
   [:title] (content (:title (:meta page)))
-  [:#sidebar]  (content (sidebar (:url page) site nav page))
+  [:#sidebar]  (content (sidebar (:url page) site sites nav page))
   [:#container :#read-area] (content (article (:page page))))
 </pre>
 </div>
@@ -309,8 +308,8 @@ Accepts a page with meta data of the structure.
 <div class="outline-text-2" id="text-10-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn transform-page [root site nav page]
-    (attach-root root site (apply str (layout site nav page))))
+<pre class="src src-clojure">(defn transform-page [root site sites nav page]
+    (attach-root root site (apply str (layout site sites nav page))))
 </pre>
 </div>
 </div>

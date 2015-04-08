@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Namespaces</title>
-    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <section id="container">
       <section id="sidebar"><nav id="main-nav">
   <header id="title">
-    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <img class="site-logo" alt="logo" src="/code/img/logo.svg" />
     <div class="titles">
       <span class="verse-title">NCL<strong>Verse</strong></span>
       <ul class="docs-site">
-        <li><a class="active" href="http://nclverse.github.io/Code">Code</a></li>
+        <li><a class="active" href="/code">Code</a></li><li><a href="/dissertation">Dissertation</a></li><li><a href="/design">Design</a></li><li><a href="/help">Help</a></li>
       </ul>
     </div>
   </header>
@@ -21,21 +21,21 @@
     <header class="category-title"><h1>apps<span class="count">0 LOC</span></h1></header>
     <ul class="titles">
       <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">221 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">243 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link active">Docs Generator<span class="count">221 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">83</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">91</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link active">Docs Generator<span class="count">243 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/collect.html">Collect<span class="count">47</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="/code/utilities/docs-generator/render.html">Render<span class="count">114</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
     <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
     <ul class="titles">
       <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -91,29 +91,35 @@ Enlive: Metadata collection.
 <div class="outline-text-1" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(def config {
-:mode :export
+<pre class="src src-clojure">(def code
+{:site "code"
+:metadata [:loc]
+ :source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/code/source"
+ })
+
+
+(def dissertation
+{:site "dissertation"
+:metadata [:word-count]
+:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/dissertation/source"})
+
+(def design
+{:site "design"
+:metadata []
+:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/design/source"})
+
+(def help
+{:site "help"
+:metadata [:topics]
+:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/help/source"})
+
+(def config {
+:mode :serve ;:export
 :render-mode :full
 :serve {:root "http://localhost:3000"}
 :export {:root "http://nclverse.github.io"}
  :output "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps"
-:sites [
-{:site "code"
-:metadata [:loc]
- :source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/code/source"
- }
-;{:site "thesis"
-;:metadata [:word-count]
-;:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/thesis/source"}
-;{:site "design"
-;:metadata []
-;:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/design/source"
-;}
-;{:site "help"
-;:metadata [:topics]
-;:source "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps/help/source"
-;:output "/Users/Prabros/Dropbox/ncl/stage3/clojure/apps"}
-]})
+:sites [code dissertation design help]})
 </pre>
 </div>
 </div>
@@ -270,9 +276,8 @@ Gives out a map of url with the pages weaved with meta data.
 
 <pre class="src src-clojure">(defn nav-element [url page]
 (let [components (url-components url)
-count (loc page)
-      sites (collect-vals :site config)]
-(into components {:loc count :sites sites})))
+count (loc page)]
+(into components {:loc count})))
 
 (defn nav-builder [root site urls pages]
 (let [nav (map nav-element urls pages)]
@@ -280,9 +285,10 @@ count (loc page)
 
 (defn full-render [root site urls pages]
 (let [html-pages (map org-&gt;html pages)
+sites (collect-vals :site config)
 pages-with-meta-data (map collect-meta-data urls html-pages)
 nav (nav-builder root site urls html-pages)]
-  (map (partial transform/transform-page root site nav) pages-with-meta-data)))
+  (map (partial transform/transform-page root site sites nav) pages-with-meta-data)))
 
 (defn renderer [root site mode]
 ({:quick #(quick-render root site %1 %2)
@@ -308,7 +314,6 @@ Builds a website.
 assets))
 </pre>
 </div>
-
 
 <p>
 The progression is thus.
@@ -354,7 +359,24 @@ Servers or exports the pages. A multimethod to either render or export based on 
 (defmethod render :export [config]
   (stasis/export-pages (collect-files config) (:output config)))
 
-(def app (render config))
+;(def app (render config))
+
+(defn export-site-builder [site-map dir]
+  (stasis/export-pages (stasis/merge-page-sources (build-site (:export-root config) :full site-map)) dir))
+
+(defn back-one-directory [s]
+  (let [idx (.lastIndexOf s "/")]
+    (subs s 0 (+ idx 1))))
+
+(defn exporter [site]
+  (if-let [site-map 
+	   ({"code" code
+	     "dissertation" dissertation
+	     "design" design
+	     "help" help}
+	    site)]
+    (let [export-dir (back-one-directory (System/getProperty "user.dir"))]
+    (export-site-builder site-map export-dir)) (println "No such site")))
 </pre>
 </div>
 </div>
