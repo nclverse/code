@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Table of Contents</title>
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section id="container">
+      <section id="sidebar"><nav id="main-nav">
+  <header id="title">
+    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <div class="titles">
+      <span class="verse-title">NCL<strong>Verse</strong></span>
+      <ul class="docs-site">
+        <li><a class="active" href="http://nclverse.github.io/code">Code</a></li><li><a href="http://nclverse.github.io/dissertation">Dissertation</a></li><li><a href="http://nclverse.github.io/design">Design</a></li><li><a href="http://nclverse.github.io/help">Help</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="category">
+    <header class="category-title"><h1>apps<span class="count">234 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+      </li>
+      </ul><ul class="titles">
+      <li><a class="title-link active">Exams<span class="count">234 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/leechness.html">Leechness<span class="count">24</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/apps/exams/gateway.html">Gateway<span class="count">56</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/handler.html">Handler<span class="count">18</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/home.html">Home<span class="count">56</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/layout.html">Layout<span class="count">39</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/transforms.html">Transforms<span class="count">41</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      </li>
+      </ul>
+  </div>
+
+</nav></section>
+      <section id="read-area"><article class="post">
+  <section class="content"><div id="table-of-contents">
+<h1>Table of Contents</h1>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="Malformed">1. Namespaces</a></li>
+<li><a href="Malformed">2. Login Regex</a></li>
+<li><a href="Malformed">3. Gateway Display</a></li>
+<li><a href="Malformed">4. Scraper</a></li>
+<li><a href="Malformed">5. Get credentials</a></li>
+<li><a href="Malformed">6. Get modules</a></li>
+<li><a href="Malformed">7. Validation</a>
+<ul>
+<li><a href="Malformed">7.1. Check for Demo</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-1">
+<h1 id="sec-1"><span class="section-number-1">1</span> Namespaces</h1>
+<div class="outline-text-1" id="text-1">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(ns exam-vault.routes.gateway
+  (:require [compojure.core :refer :all]
+	    [ring.util.response :as resp]
+	    [net.cgrand.enlive-html :as enlive]
+	    [hiccup.form :refer [form-to text-field password-field submit-button]]
+	    [exam-vault.leechness :as leech]
+	    [exam-vault.views.layout :as layout]))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-1">
+<h1 id="sec-2"><span class="section-number-1">2</span> Login Regex</h1>
+<div class="outline-text-1" id="text-2">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(def login-regex #"(?i)[A-Z]\d{7}")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-1">
+<h1 id="sec-3"><span class="section-number-1">3</span> Gateway Display</h1>
+<div class="outline-text-1" id="text-3">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn gateway-display []
+  (layout/login [:section {:class "gateway"}
+		 [:header
+		  [:div {:class "verse-logo"} "logo"]
+		  [:h1 "Welcome to " [:strong "NCLVerse"]]]
+		 (form-to
+		  [:post "/login"]
+		  (text-field {:class "username" :placeholder "NCL StudentID"} "username")
+		  (password-field {:class "password" :placeholder "Password"} "password")
+		  (submit-button "Login"))]))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-1">
+<h1 id="sec-4"><span class="section-number-1">4</span> Scraper</h1>
+<div class="outline-text-1" id="text-4">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn scraper [name pass]
+  (leech/ness name pass))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-1">
+<h1 id="sec-5"><span class="section-number-1">5</span> Get credentials</h1>
+<div class="outline-text-1" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn get-credentials [page]
+  (let [area (enlive/select page [:#uname :span])
+	details (apply str (some :content area))
+	student-id (second (re-find #"\((\d+)\)" details))
+	name (second (re-find #"(.*)\(" details))]
+    {:id student-id :name (clojure.string/trim name)}))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-1">
+<h1 id="sec-6"><span class="section-number-1">6</span> Get modules</h1>
+<div class="outline-text-1" id="text-6">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn get-modules [page]
+  (let [modules (mapcat :content (enlive/select (enlive/select page [:#topmenu]) [:a]))]
+    {:modules (clojure.string/join " " modules)}))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn exam-scrape [id password]
+  (if-let [page (enlive/html-snippet (:body (:response (scraper id password))))]
+    (if (and (get-credentials page) (get-modules page)) 
+      (merge (get-credentials page) (get-modules page)) false) false))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-1">
+<h1 id="sec-7"><span class="section-number-1">7</span> Validation</h1>
+<div class="outline-text-1" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-clojure">When there's a valid login, but the app is not yet ready, show an alert message.
+(defn valid? [username pass] (re-matches login-regex username))
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1" class="outline-2">
+<h2 id="sec-7-1"><span class="section-number-2">7.1</span> Check for Demo</h2>
+<div class="outline-text-2" id="text-7-1">
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn demo? [username pass] (and (= username "demo") (= pass "please")))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn in? [cookies] (let [verify #(contains? cookies %)]
+		      (and (verify "id") (verify "name") (verify "modules"))))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(def demo-response (assoc (resp/redirect "/") :cookies {"id" {:value "B0123456"} "name" {:value "The Dude"} "modules" {:value "CSC3221 CSC3223 CSC3324 CSC3423 CSC3621"}}))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn login [username password cookies]
+  (cond (demo? username password) demo-response
+	(valid? username password)
+	(let [ness-data (exam-scrape username password)] (assoc (resp/redirect "/") :cookies ness-data))
+	:else (gateway-display)))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(defn logout [req]
+  (let [clear-value {:value "" :max-age 0}]
+    (update-in (resp/redirect "/login") [:cookies] merge {"id" clear-value "name" clear-value "modules" clear-value})))
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">Find a way to flash alerts when the login is wrong
+(defroutes gateway-routes
+  (GET "/login" {cookies :cookies} (if (in? cookies) (resp/redirect "/") (gateway-display)))
+  (POST "/login" [username password :as {cookies :cookies}]
+	(cond (demo? username password) demo-response
+	      (valid? username password)
+	      (let [ness-data (exam-scrape username password)] (assoc (resp/redirect "/") :cookies ness-data))
+	      :else (gateway-display)))
+  (POST "/logout" req (logout req)))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</article></section>
+    </section>
+  </body>
+
+</html>
