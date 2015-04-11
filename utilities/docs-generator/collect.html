@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Namespaces</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link active">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link active">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -53,10 +54,11 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns docs-gen.collect
-  (:require [stasis.core :as stasis]
-	    [prone.debug :refer [debug]]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">docs-gen.collect</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">stasis.core</span> <span class="ss">:as</span> <span class="nv">stasis</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">prone.debug</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">debug</span><span class="p">]]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -66,8 +68,9 @@
 <div class="outline-text-1" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(def settings {:supported-formats ["css" "svg"]})
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">settings</span> <span class="p">{</span><span class="ss">:supported-formats</span> <span class="p">[</span><span class="s">"css"</span> <span class="s">"svg"</span><span class="p">]})</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -80,11 +83,12 @@
 <div class="outline-text-2" id="text-3-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn scan-format [format]
-  ({"css" #".*\.css"
-    "svg" #".*\.svg"
-    "org" #".*\.org"} format))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">scan-format</span> <span class="p">[</span><span class="nv">format</span><span class="p">]</span>
+  <span class="p">({</span><span class="s">"css"</span> <span class="o">#</span><span class="s">".*\.css"</span>
+    <span class="s">"svg"</span> <span class="o">#</span><span class="s">".*\.svg"</span>
+    <span class="s">"org"</span> <span class="o">#</span><span class="s">".*\.org"</span><span class="p">}</span> <span class="nv">format</span><span class="p">))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -99,64 +103,68 @@ Only takes in the supported formats.
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn slurp-files [format dir]
-  {:post [#((complement empty?) %)]}
-  (let [format-regex (scan-format format)]
-    (stasis/slurp-directory dir format-regex)))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">slurp-files</span> <span class="p">[</span><span class="nv">format</span> <span class="nv">dir</span><span class="p">]</span>
+  <span class="p">{</span><span class="ss">:post</span> <span class="p">[</span><span class="o">#</span><span class="p">((</span><span class="nb">complement </span><span class="nv">empty?</span><span class="p">)</span> <span class="nv">%</span><span class="p">)]}</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">format-regex</span> <span class="p">(</span><span class="nf">scan-format</span> <span class="nv">format</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nf">stasis/slurp-directory</span> <span class="nv">dir</span> <span class="nv">format-regex</span><span class="p">)))</span>
+</pre></div>
+
 </div>
 
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(def clean-numbering #(clojure.string/replace % #"\d+-" ""))
+<div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">clean-numbering</span> <span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/replace</span> <span class="nv">%</span> <span class="o">#</span><span class="s">"\d+-"</span> <span class="s">""</span><span class="p">))</span>
 
-(defn replace-org [url replacement]
-  (clojure.string/replace url #".org" replacement))
-</pre>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">replace-org</span> <span class="p">[</span><span class="nv">url</span> <span class="nv">replacement</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/replace</span> <span class="nv">url</span> <span class="o">#</span><span class="s">".org"</span> <span class="nv">replacement</span><span class="p">))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn knit-url [&amp; args]
-  (apply str (interpose "/" args)))
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">knit-url</span> <span class="p">[</span><span class="o">&amp;</span> <span class="nv">args</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">apply str </span><span class="p">(</span><span class="nf">interpose</span> <span class="s">"/"</span> <span class="nv">args</span><span class="p">)))</span>
 
-(defn dest-url [site file-type source-dir]
-  (knit-url "" site (str file-type source-dir)))
+<span class="p">(</span><span class="kd">defn </span><span class="nv">dest-url</span> <span class="p">[</span><span class="nv">site</span> <span class="nv">file-type</span> <span class="nv">source-dir</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">knit-url</span> <span class="s">""</span> <span class="nv">site</span> <span class="p">(</span><span class="nb">str </span><span class="nv">file-type</span> <span class="nv">source-dir</span><span class="p">)))</span>
 
-(defn page-url [site url]
-  (knit-url "" (str site (replace-org (clean-numbering url) ".html"))))
-</pre>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">page-url</span> <span class="p">[</span><span class="nv">site</span> <span class="nv">url</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">knit-url</span> <span class="s">""</span> <span class="p">(</span><span class="nb">str </span><span class="nv">site</span> <span class="p">(</span><span class="nf">replace-org</span> <span class="p">(</span><span class="nf">clean-numbering</span> <span class="nv">url</span><span class="p">)</span> <span class="s">".html"</span><span class="p">))))</span>
+</pre></div>
+
 </div>
 
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn asset-key [k] ({"css" :css "svg" :img} k))
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">asset-key</span> <span class="p">[</span><span class="nv">k</span><span class="p">]</span> <span class="p">({</span><span class="s">"css"</span> <span class="ss">:css</span> <span class="s">"svg"</span> <span class="ss">:img</span><span class="p">}</span> <span class="nv">k</span><span class="p">))</span>
 
-(defn get-assets [asset site source-dir]
-  (let [k (asset-key asset)
-  asset-dir (knit-url source-dir (name k))
-	asset-map (slurp-files asset asset-dir)
-	source-urls (keys asset-map)
-	assets (vals asset-map)
-	dest-urls (map #(dest-url site (name k) %) source-urls)]
-    {k (zipmap dest-urls assets)}))
+<span class="p">(</span><span class="kd">defn </span><span class="nv">get-assets</span> <span class="p">[</span><span class="nv">asset</span> <span class="nv">site</span> <span class="nv">source-dir</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">k</span> <span class="p">(</span><span class="nf">asset-key</span> <span class="nv">asset</span><span class="p">)</span>
+  <span class="nv">asset-dir</span> <span class="p">(</span><span class="nf">knit-url</span> <span class="nv">source-dir</span> <span class="p">(</span><span class="nb">name </span><span class="nv">k</span><span class="p">))</span>
+	<span class="nv">asset-map</span> <span class="p">(</span><span class="nf">slurp-files</span> <span class="nv">asset</span> <span class="nv">asset-dir</span><span class="p">)</span>
+	<span class="nv">source-urls</span> <span class="p">(</span><span class="nb">keys </span><span class="nv">asset-map</span><span class="p">)</span>
+	<span class="nv">assets</span> <span class="p">(</span><span class="nb">vals </span><span class="nv">asset-map</span><span class="p">)</span>
+	<span class="nv">dest-urls</span> <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">dest-url</span> <span class="nv">site</span> <span class="p">(</span><span class="nb">name </span><span class="nv">k</span><span class="p">)</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">source-urls</span><span class="p">)]</span>
+    <span class="p">{</span><span class="nv">k</span> <span class="p">(</span><span class="nb">zipmap </span><span class="nv">dest-urls</span> <span class="nv">assets</span><span class="p">)}))</span>
 
-(defn get-org-pages [site source-dir render-fn]
-  (let [org-dir (knit-url source-dir "org")
-	org-map (slurp-files "org" org-dir)
-	source-urls (keys org-map)
-	cleaned-urls (map #(replace-org % "") (keys org-map))
-	org-pages (vals org-map)
-	dest-urls (map #(page-url site %) source-urls)]
-    (zipmap dest-urls (render-fn cleaned-urls org-pages))))
+<span class="p">(</span><span class="kd">defn </span><span class="nv">get-org-pages</span> <span class="p">[</span><span class="nv">site</span> <span class="nv">source-dir</span> <span class="nv">render-fn</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">org-dir</span> <span class="p">(</span><span class="nf">knit-url</span> <span class="nv">source-dir</span> <span class="s">"org"</span><span class="p">)</span>
+	<span class="nv">org-map</span> <span class="p">(</span><span class="nf">slurp-files</span> <span class="s">"org"</span> <span class="nv">org-dir</span><span class="p">)</span>
+	<span class="nv">source-urls</span> <span class="p">(</span><span class="nb">keys </span><span class="nv">org-map</span><span class="p">)</span>
+	<span class="nv">cleaned-urls</span> <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">replace-org</span> <span class="nv">%</span> <span class="s">""</span><span class="p">)</span> <span class="p">(</span><span class="nb">keys </span><span class="nv">org-map</span><span class="p">))</span>
+	<span class="nv">org-pages</span> <span class="p">(</span><span class="nb">vals </span><span class="nv">org-map</span><span class="p">)</span>
+	<span class="nv">dest-urls</span> <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">page-url</span> <span class="nv">site</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">source-urls</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nb">zipmap </span><span class="nv">dest-urls</span> <span class="p">(</span><span class="nf">render-fn</span> <span class="nv">cleaned-urls</span> <span class="nv">org-pages</span><span class="p">))))</span>
 
 
-(defn collect-all [site source-dir render-fn]
-  (into {:pages (get-org-pages site source-dir render-fn)}
-	(map #(get-assets % site source-dir) (:supported-formats settings))))
-</pre>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">collect-all</span> <span class="p">[</span><span class="nv">site</span> <span class="nv">source-dir</span> <span class="nv">render-fn</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">into </span><span class="p">{</span><span class="ss">:pages</span> <span class="p">(</span><span class="nf">get-org-pages</span> <span class="nv">site</span> <span class="nv">source-dir</span> <span class="nv">render-fn</span><span class="p">)}</span>
+	<span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">get-assets</span> <span class="nv">%</span> <span class="nv">site</span> <span class="nv">source-dir</span><span class="p">)</span> <span class="p">(</span><span class="ss">:supported-formats</span> <span class="nv">settings</span><span class="p">))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>

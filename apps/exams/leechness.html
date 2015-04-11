@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Table of Contents</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -64,11 +65,12 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns exam-vault.leechness
-  (:require [net.cgrand.enlive-html :as el]
-	    [clj-http.client :as client]
-	    [clj-http.cookies :as monster]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">exam-vault.leechness</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">net.cgrand.enlive-html</span> <span class="ss">:as</span> <span class="nv">el</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">clj-http.client</span> <span class="ss">:as</span> <span class="nv">client</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">clj-http.cookies</span> <span class="ss">:as</span> <span class="nv">monster</span><span class="p">]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -78,9 +80,10 @@
 <div class="outline-text-1" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn get-url [url cookies]
-  (client/get url {:cookie-store cookies}))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">get-url</span> <span class="p">[</span><span class="nv">url</span> <span class="nv">cookies</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">client/get</span> <span class="nv">url</span> <span class="p">{</span><span class="ss">:cookie-store</span> <span class="nv">cookies</span><span class="p">}))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -91,9 +94,10 @@
 <div class="outline-text-1" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn post-url [url params cookies]
-  (client/post url {:form-params params :cookie-store cookies}))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">post-url</span> <span class="p">[</span><span class="nv">url</span> <span class="nv">params</span> <span class="nv">cookies</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">client/post</span> <span class="nv">url</span> <span class="p">{</span><span class="ss">:form-params</span> <span class="nv">params</span> <span class="ss">:cookie-store</span> <span class="nv">cookies</span><span class="p">}))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -103,11 +107,12 @@
 <div class="outline-text-1" id="text-4">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn select-item [attr value html]
-  (:attrs (first (el/select
-		  (el/html-snippet html)
-		  [(el/attr= attr value)]))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">select-item</span> <span class="p">[</span><span class="nv">attr</span> <span class="nv">value</span> <span class="nv">html</span><span class="p">]</span>
+  <span class="p">(</span><span class="ss">:attrs</span> <span class="p">(</span><span class="nb">first </span><span class="p">(</span><span class="nf">el/select</span>
+		  <span class="p">(</span><span class="nf">el/html-snippet</span> <span class="nv">html</span><span class="p">)</span>
+		  <span class="p">[(</span><span class="nf">el/attr=</span> <span class="nv">attr</span> <span class="nv">value</span><span class="p">)]))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -117,19 +122,20 @@
 <div class="outline-text-1" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn ness [id password]
-  (let [jar (monster/cookie-store)
-	ness "https://ness.ncl.ac.uk"
-	ncl-gateway "https://gateway.ncl.ac.uk/idp/Authn/UserPassword"]
-    (get-url ness jar)
-    (post-url ncl-gateway {:j_username id :j_password password :_eventId "submit" :submit "LOGIN"} jar)
-    (let [body (:body (get-url ness jar))]
-      (when-let [session-key (:value (select-item :name "SAMLResponse" body))]
-	(let [redirect (:action (select-item :method "post" body))
-	      validation (post-url redirect {:SAMLResponse session-key} jar)
-	      response (get-url ness jar)]
-	  {:response response :cookies (monster/get-cookies jar)})))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">ness</span> <span class="p">[</span><span class="nv">id</span> <span class="nv">password</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">jar</span> <span class="p">(</span><span class="nf">monster/cookie-store</span><span class="p">)</span>
+	<span class="nv">ness</span> <span class="s">"https://ness.ncl.ac.uk"</span>
+	<span class="nv">ncl-gateway</span> <span class="s">"https://gateway.ncl.ac.uk/idp/Authn/UserPassword"</span><span class="p">]</span>
+    <span class="p">(</span><span class="nf">get-url</span> <span class="nv">ness</span> <span class="nv">jar</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">post-url</span> <span class="nv">ncl-gateway</span> <span class="p">{</span><span class="ss">:j_username</span> <span class="nv">id</span> <span class="ss">:j_password</span> <span class="nv">password</span> <span class="ss">:_eventId</span> <span class="s">"submit"</span> <span class="ss">:submit</span> <span class="s">"LOGIN"</span><span class="p">}</span> <span class="nv">jar</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">body</span> <span class="p">(</span><span class="ss">:body</span> <span class="p">(</span><span class="nf">get-url</span> <span class="nv">ness</span> <span class="nv">jar</span><span class="p">))]</span>
+      <span class="p">(</span><span class="nb">when-let </span><span class="p">[</span><span class="nv">session-key</span> <span class="p">(</span><span class="ss">:value</span> <span class="p">(</span><span class="nf">select-item</span> <span class="ss">:name</span> <span class="s">"SAMLResponse"</span> <span class="nv">body</span><span class="p">))]</span>
+	<span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">redirect</span> <span class="p">(</span><span class="ss">:action</span> <span class="p">(</span><span class="nf">select-item</span> <span class="ss">:method</span> <span class="s">"post"</span> <span class="nv">body</span><span class="p">))</span>
+	      <span class="nv">validation</span> <span class="p">(</span><span class="nf">post-url</span> <span class="nv">redirect</span> <span class="p">{</span><span class="ss">:SAMLResponse</span> <span class="nv">session-key</span><span class="p">}</span> <span class="nv">jar</span><span class="p">)</span>
+	      <span class="nv">response</span> <span class="p">(</span><span class="nf">get-url</span> <span class="nv">ness</span> <span class="nv">jar</span><span class="p">)]</span>
+	  <span class="p">{</span><span class="ss">:response</span> <span class="nv">response</span> <span class="ss">:cookies</span> <span class="p">(</span><span class="nf">monster/get-cookies</span> <span class="nv">jar</span><span class="p">)})))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>

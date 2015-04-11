@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Table of Contents</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -67,10 +68,11 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns exam-vault.views.layout
-  (:require [hiccup.page :refer [html5 include-css]]
-	    [hiccup.form :refer [form-to text-field password-field submit-button]]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">exam-vault.views.layout</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">hiccup.page</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">html5</span> <span class="nv">include-css</span><span class="p">]]</span>
+	    <span class="p">[</span><span class="nv">hiccup.form</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">form-to</span> <span class="nv">text-field</span> <span class="nv">password-field</span> <span class="nv">submit-button</span><span class="p">]]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -80,22 +82,23 @@
 <div class="outline-text-1" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn meta-data [title]
-  [:head
-   [:title title]
-   (include-css "/css/ui-elements.css")
-   (include-css "/css/screen.css")
-  (str
-   "&lt;script&gt;
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">meta-data</span> <span class="p">[</span><span class="nv">title</span><span class="p">]</span>
+  <span class="p">[</span><span class="ss">:head</span>
+   <span class="p">[</span><span class="ss">:title</span> <span class="nv">title</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">include-css</span> <span class="s">"/css/ui-elements.css"</span><span class="p">)</span>
+   <span class="p">(</span><span class="nf">include-css</span> <span class="s">"/css/screen.css"</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">str</span>
+   <span class="s">"&lt;script&gt;</span>
+<span class="s">  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){</span>
+<span class="s">  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),</span>
+<span class="s">  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)</span>
+<span class="s">  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');</span>
 
-  ga('create', 'UA-40809630-4', 'auto');
-  ga('send', 'pageview');
-&lt;/script&gt;")])
-</pre>
+<span class="s">  ga('create', 'UA-40809630-4', 'auto');</span>
+<span class="s">  ga('send', 'pageview');</span>
+<span class="s">&lt;/script&gt;"</span><span class="p">)])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -105,12 +108,13 @@
 <div class="outline-text-1" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn meta-data-login [title]
-  [:head
-   [:title title]
-   (include-css "/css/ui-elements.css")
-   (include-css "/css/gateway.css")])
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">meta-data-login</span> <span class="p">[</span><span class="nv">title</span><span class="p">]</span>
+  <span class="p">[</span><span class="ss">:head</span>
+   <span class="p">[</span><span class="ss">:title</span> <span class="nv">title</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">include-css</span> <span class="s">"/css/ui-elements.css"</span><span class="p">)</span>
+   <span class="p">(</span><span class="nf">include-css</span> <span class="s">"/css/gateway.css"</span><span class="p">)])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -120,10 +124,11 @@
 <div class="outline-text-1" id="text-4">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn universal-header []
-  [:header {:id "universal-header"}
-   [:section {:class "global-nav"} [:h1 [:em "NCL"] [:strong "Exams"]]]])
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">universal-header</span> <span class="p">[]</span>
+  <span class="p">[</span><span class="ss">:header</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"universal-header"</span><span class="p">}</span>
+   <span class="p">[</span><span class="ss">:section</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"global-nav"</span><span class="p">}</span> <span class="p">[</span><span class="ss">:h1</span> <span class="p">[</span><span class="ss">:em</span> <span class="s">"NCL"</span><span class="p">]</span> <span class="p">[</span><span class="ss">:strong</span> <span class="s">"Exams"</span><span class="p">]]]])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -133,11 +138,12 @@
 <div class="outline-text-1" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn universal-header-with-login []
-  [:header {:id "universal-header"}
-   [:section {:class "global-nav"} [:h1 [:em "NCL"] [:strong "Exams"]]
-(form-to [:post "/logout"] (submit-button "Log Out"))]])
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">universal-header-with-login</span> <span class="p">[]</span>
+  <span class="p">[</span><span class="ss">:header</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"universal-header"</span><span class="p">}</span>
+   <span class="p">[</span><span class="ss">:section</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"global-nav"</span><span class="p">}</span> <span class="p">[</span><span class="ss">:h1</span> <span class="p">[</span><span class="ss">:em</span> <span class="s">"NCL"</span><span class="p">]</span> <span class="p">[</span><span class="ss">:strong</span> <span class="s">"Exams"</span><span class="p">]]</span>
+<span class="p">(</span><span class="nf">form-to</span> <span class="p">[</span><span class="ss">:post</span> <span class="s">"/logout"</span><span class="p">]</span> <span class="p">(</span><span class="nf">submit-button</span> <span class="s">"Log Out"</span><span class="p">))]])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -152,8 +158,9 @@ Main container for the app
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn container [&amp; sections] [:section {:id "app"} sections])
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">container</span> <span class="p">[</span><span class="o">&amp;</span> <span class="nv">sections</span><span class="p">]</span> <span class="p">[</span><span class="ss">:section</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"app"</span><span class="p">}</span> <span class="nv">sections</span><span class="p">])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -163,11 +170,12 @@ Main container for the app
 <div class="outline-text-1" id="text-7">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn common [&amp; body]
-  (html5
-   (meta-data "NCLExams")
-   [:body (universal-header-with-login) (container body)]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">common</span> <span class="p">[</span><span class="o">&amp;</span> <span class="nv">body</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">html5</span>
+   <span class="p">(</span><span class="nf">meta-data</span> <span class="s">"NCLExams"</span><span class="p">)</span>
+   <span class="p">[</span><span class="ss">:body</span> <span class="p">(</span><span class="nf">universal-header-with-login</span><span class="p">)</span> <span class="p">(</span><span class="nf">container</span> <span class="nv">body</span><span class="p">)]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -177,11 +185,12 @@ Main container for the app
 <div class="outline-text-1" id="text-8">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn login [&amp; body]
-  (html5
-   (meta-data-login "Welcome to NCLVerse")
-   [:body body]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">login</span> <span class="p">[</span><span class="o">&amp;</span> <span class="nv">body</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">html5</span>
+   <span class="p">(</span><span class="nf">meta-data-login</span> <span class="s">"Welcome to NCLVerse"</span><span class="p">)</span>
+   <span class="p">[</span><span class="ss">:body</span> <span class="nv">body</span><span class="p">]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>

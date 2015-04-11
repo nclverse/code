@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Table of Contents</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link active">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link active">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -61,12 +62,13 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns docs-gen.collect-test
-  (:require [clojure.test :refer :all]
-	    [docs-gen.collect :refer :all]
-	    ;[docs-gen.render :refer [[config]]]
- :reload))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">docs-gen.collect-test</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">clojure.test</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">docs-gen.collect</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]))</span>
+
+	    <span class="c1">;[docs-gen.render :refer [[config]]]</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -76,60 +78,66 @@
 <div class="outline-text-1" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn contains-all-keys [coll keys]
-  (every? #(contains? coll %) keys))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">contains-all-keys</span> <span class="p">[</span><span class="nv">coll</span> <span class="nv">keys</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">every? </span><span class="o">#</span><span class="p">(</span><span class="nb">contains? </span><span class="nv">coll</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">keys</span><span class="p">))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(deftest contains-all-test
-  (let [coll {:life 0
-	      :universe 1
-	      :everything "values"
-	      :answer 42}]
-  (is (contains-all-keys coll [:life :universe :everything]))
-  (is (not (contains-all-keys coll [:42])))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="nf">deftest</span> <span class="nv">contains-all-test</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">coll</span> <span class="p">{</span><span class="ss">:life</span> <span class="mi">0</span>
+	      <span class="ss">:universe</span> <span class="mi">1</span>
+	      <span class="ss">:everything</span> <span class="s">"values"</span>
+	      <span class="ss">:answer</span> <span class="mi">42</span><span class="p">}]</span>
+  <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nf">contains-all-keys</span> <span class="nv">coll</span> <span class="p">[</span><span class="ss">:life</span> <span class="ss">:universe</span> <span class="ss">:everything</span><span class="p">]))</span>
+  <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nf">contains-all-keys</span> <span class="nv">coll</span> <span class="p">[</span><span class="ss">:42</span><span class="p">])))))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(deftest collection-test
-  (testing "All formats present"
-    (let [supported (:supported-formats settings)]
-  (is (every? (complement nil?) (map #(scan-format %) supported)))
-  (is (every? (complement nil?) (map #(asset-key %) supported))))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="nf">deftest</span> <span class="nv">collection-test</span>
+  <span class="p">(</span><span class="nf">testing</span> <span class="s">"All formats present"</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">supported</span> <span class="p">(</span><span class="ss">:supported-formats</span> <span class="nv">settings</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">every? </span><span class="p">(</span><span class="nb">complement </span><span class="nv">nil?</span><span class="p">)</span> <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">scan-format</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">supported</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">every? </span><span class="p">(</span><span class="nb">complement </span><span class="nv">nil?</span><span class="p">)</span> <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">asset-key</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">supported</span><span class="p">))))))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(deftest url-creation
-(testing "Url weaver"
-(is (= (knit-url "hello" "there") "hello/there"))
-(is (= (knit-url "hello" "there" "world") "hello/there/world"))
-(is (= (knit-url "" "hello" "there") "/hello/there")))
-(testing "Asset URL Creation"
-(is (= (dest-url "some-site" "css" "/goes/like/this") 
-"/some-site/css/goes/like/this")))
-(is (= (page-url "code" "/goes/like/this.org")
-"/code/goes/like/this.html")))
+<div class="highlight"><pre><span class="p">(</span><span class="nf">deftest</span> <span class="nv">url-creation</span>
+<span class="p">(</span><span class="nf">testing</span> <span class="s">"Url weaver"</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">knit-url</span> <span class="s">"hello"</span> <span class="s">"there"</span><span class="p">)</span> <span class="s">"hello/there"</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">knit-url</span> <span class="s">"hello"</span> <span class="s">"there"</span> <span class="s">"world"</span><span class="p">)</span> <span class="s">"hello/there/world"</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">knit-url</span> <span class="s">""</span> <span class="s">"hello"</span> <span class="s">"there"</span><span class="p">)</span> <span class="s">"/hello/there"</span><span class="p">)))</span>
+<span class="p">(</span><span class="nf">testing</span> <span class="s">"Asset URL Creation"</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">dest-url</span> <span class="s">"some-site"</span> <span class="s">"css"</span> <span class="s">"/goes/like/this"</span><span class="p">)</span> 
+<span class="s">"/some-site/css/goes/like/this"</span><span class="p">)))</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">page-url</span> <span class="s">"code"</span> <span class="s">"/goes/like/this.org"</span><span class="p">)</span>
+<span class="s">"/code/goes/like/this.html"</span><span class="p">)))</span>
 
 
-(deftest asset-test
-    (let [source (first (collect-vals :source config))
-	  asset "css"
-	  asset-dir (str source "/" asset "/")
-	  locs (keys (slurp-assets asset asset-dir))
-	  files (vals (slurp-assets asset asset-dir))]
-      (testing "Get assets"
-	(is (if ((complement empty?) files) (every? true? (map #(.endsWith % ".css") locs)))))
-      (testing "Place Assets"
-	(is (= (get-assets "css" "code" source)
-		 {:stylesheets
-		  (zipmap (map #(str "/code/css" %) locs) files)})))))
-</pre>
+<span class="p">(</span><span class="nf">comment</span>
+<span class="p">(</span><span class="nf">deftest</span> <span class="nv">asset-test</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">source</span> <span class="p">(</span><span class="nb">first </span><span class="p">(</span><span class="nf">collect-vals</span> <span class="ss">:source</span> <span class="nv">config</span><span class="p">))</span>
+	  <span class="nv">asset</span> <span class="s">"css"</span>
+	  <span class="nv">asset-dir</span> <span class="p">(</span><span class="nb">str </span><span class="nv">source</span> <span class="s">"/"</span> <span class="nv">asset</span> <span class="s">"/"</span><span class="p">)</span>
+	  <span class="nv">locs</span> <span class="p">(</span><span class="nb">keys </span><span class="p">(</span><span class="nf">slurp-assets</span> <span class="nv">asset</span> <span class="nv">asset-dir</span><span class="p">))</span>
+	  <span class="nv">files</span> <span class="p">(</span><span class="nb">vals </span><span class="p">(</span><span class="nf">slurp-assets</span> <span class="nv">asset</span> <span class="nv">asset-dir</span><span class="p">))]</span>
+      <span class="p">(</span><span class="nf">testing</span> <span class="s">"Get assets"</span>
+	<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="k">if </span><span class="p">((</span><span class="nb">complement </span><span class="nv">empty?</span><span class="p">)</span> <span class="nv">files</span><span class="p">)</span> <span class="p">(</span><span class="nb">every? true? </span><span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">.endsWith</span> <span class="nv">%</span> <span class="s">".css"</span><span class="p">)</span> <span class="nv">locs</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nf">testing</span> <span class="s">"Place Assets"</span>
+	<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">get-assets</span> <span class="s">"css"</span> <span class="s">"code"</span> <span class="nv">source</span><span class="p">)</span>
+		 <span class="p">{</span><span class="ss">:stylesheets</span>
+		  <span class="p">(</span><span class="nb">zipmap </span><span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nb">str </span><span class="s">"/code/css"</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">locs</span><span class="p">)</span> <span class="nv">files</span><span class="p">)})))))</span>
+		  <span class="p">)</span>
+</pre></div>
+
 </div>
 
 <p>

@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Table of Contents</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -66,8 +67,9 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns exam-vault.views.transforms)
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">exam-vault.views.transforms</span><span class="p">)</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -77,9 +79,10 @@
 <div class="outline-text-1" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn tidy-tags [word]
-  (clojure.string/capitalize (clojure.string/replace (name word) "-" " ")))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">tidy-tags</span> <span class="p">[</span><span class="nv">word</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="p">(</span><span class="nf">clojure.string/replace</span> <span class="p">(</span><span class="nb">name </span><span class="nv">word</span><span class="p">)</span> <span class="s">"-"</span> <span class="s">" "</span><span class="p">)))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -89,12 +92,13 @@
 <div class="outline-text-1" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn htmlize-years [module year years]
-  (when (not-empty years)
-    (into [:ul] (map (fn [x]
-		       (let [url (str "/modules/" module "/" x)]
-		       [:li [:a (if (= (str x) (str year)) {:class "toggled" :href url} {:href url}) x]])) years))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">htmlize-years</span> <span class="p">[</span><span class="nv">module</span> <span class="nv">year</span> <span class="nv">years</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">when </span><span class="p">(</span><span class="nf">not-empty</span> <span class="nv">years</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">into </span><span class="p">[</span><span class="ss">:ul</span><span class="p">]</span> <span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">x</span><span class="p">]</span>
+		       <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">url</span> <span class="p">(</span><span class="nb">str </span><span class="s">"/modules/"</span> <span class="nv">module</span> <span class="s">"/"</span> <span class="nv">x</span><span class="p">)]</span>
+		       <span class="p">[</span><span class="ss">:li</span> <span class="p">[</span><span class="ss">:a</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nb">str </span><span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">str </span><span class="nv">year</span><span class="p">))</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"toggled"</span> <span class="ss">:href</span> <span class="nv">url</span><span class="p">}</span> <span class="p">{</span><span class="ss">:href</span> <span class="nv">url</span><span class="p">})</span> <span class="nv">x</span><span class="p">]]))</span> <span class="nv">years</span><span class="p">))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -104,15 +108,16 @@
 <div class="outline-text-1" id="text-4">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn htmlize-papers [questions]
-  (for [q questions]
-    (let [{:keys [question mark topics]} q]
-      [:div {:class "question"}
-       (for [t topics] [:span {:class "topics"} (tidy-tags t)])
-       [:article question]
-       [:p {:class "marks"} mark]
-       ])))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">htmlize-papers</span> <span class="p">[</span><span class="nv">questions</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">for </span><span class="p">[</span><span class="nv">q</span> <span class="nv">questions</span><span class="p">]</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[{</span><span class="ss">:keys</span> <span class="p">[</span><span class="nv">question</span> <span class="nv">mark</span> <span class="nv">topics</span><span class="p">]}</span> <span class="nv">q</span><span class="p">]</span>
+      <span class="p">[</span><span class="ss">:div</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"question"</span><span class="p">}</span>
+       <span class="p">(</span><span class="nb">for </span><span class="p">[</span><span class="nv">t</span> <span class="nv">topics</span><span class="p">]</span> <span class="p">[</span><span class="ss">:span</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"topics"</span><span class="p">}</span> <span class="p">(</span><span class="nf">tidy-tags</span> <span class="nv">t</span><span class="p">)])</span>
+       <span class="p">[</span><span class="ss">:article</span> <span class="nv">question</span><span class="p">]</span>
+       <span class="p">[</span><span class="ss">:p</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"marks"</span><span class="p">}</span> <span class="nv">mark</span><span class="p">]</span>
+       <span class="p">])))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -122,16 +127,17 @@
 <div class="outline-text-1" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn listify [module-data selection]
-	(for [m module-data]
-	  (let [mcode (:code m)
-		mname (:module m)]
-	    [:li {:class (str "module " mcode)}
-	     [:a 
-	      (if (= mcode selection) (conj {:class "selected"} {:href (str "/modules/" mcode)}) {:href (str "/modules/" mcode)})
-	      [:span mcode]
-	      [:p mname]]])))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">listify</span> <span class="p">[</span><span class="nv">module-data</span> <span class="nv">selection</span><span class="p">]</span>
+	<span class="p">(</span><span class="nb">for </span><span class="p">[</span><span class="nv">m</span> <span class="nv">module-data</span><span class="p">]</span>
+	  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">mcode</span> <span class="p">(</span><span class="ss">:code</span> <span class="nv">m</span><span class="p">)</span>
+		<span class="nv">mname</span> <span class="p">(</span><span class="ss">:module</span> <span class="nv">m</span><span class="p">)]</span>
+	    <span class="p">[</span><span class="ss">:li</span> <span class="p">{</span><span class="ss">:class</span> <span class="p">(</span><span class="nb">str </span><span class="s">"module "</span> <span class="nv">mcode</span><span class="p">)}</span>
+	     <span class="p">[</span><span class="ss">:a</span> 
+	      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">mcode</span> <span class="nv">selection</span><span class="p">)</span> <span class="p">(</span><span class="nb">conj </span><span class="p">{</span><span class="ss">:class</span> <span class="s">"selected"</span><span class="p">}</span> <span class="p">{</span><span class="ss">:href</span> <span class="p">(</span><span class="nb">str </span><span class="s">"/modules/"</span> <span class="nv">mcode</span><span class="p">)})</span> <span class="p">{</span><span class="ss">:href</span> <span class="p">(</span><span class="nb">str </span><span class="s">"/modules/"</span> <span class="nv">mcode</span><span class="p">)})</span>
+	      <span class="p">[</span><span class="ss">:span</span> <span class="nv">mcode</span><span class="p">]</span>
+	      <span class="p">[</span><span class="ss">:p</span> <span class="nv">mname</span><span class="p">]]])))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -141,18 +147,19 @@
 <div class="outline-text-1" id="text-6">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn distribution-bar [t share]
-  (let [class
-  (cond
-   (= t "out of syllabus") "grey"
-   (&gt; share 30) "green"
-   (&gt; share 20) "teal"
-   (&gt; share 10) "blue"
-   (&gt;= share 0) "purple"
-   :else "grey")]
-    [:li {:class (str "share-bar " class) :style (str "width:" (int (* (/  share 100) 180)) "px;")}]
-  ))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">distribution-bar</span> <span class="p">[</span><span class="nv">t</span> <span class="nv">share</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">class</span>
+  <span class="p">(</span><span class="nf">cond</span>
+   <span class="p">(</span><span class="nb">= </span><span class="nv">t</span> <span class="s">"out of syllabus"</span><span class="p">)</span> <span class="s">"grey"</span>
+   <span class="p">(</span><span class="nb">&gt; </span><span class="nv">share</span> <span class="mi">30</span><span class="p">)</span> <span class="s">"green"</span>
+   <span class="p">(</span><span class="nb">&gt; </span><span class="nv">share</span> <span class="mi">20</span><span class="p">)</span> <span class="s">"teal"</span>
+   <span class="p">(</span><span class="nb">&gt; </span><span class="nv">share</span> <span class="mi">10</span><span class="p">)</span> <span class="s">"blue"</span>
+   <span class="p">(</span><span class="nb">&gt;= </span><span class="nv">share</span> <span class="mi">0</span><span class="p">)</span> <span class="s">"purple"</span>
+   <span class="ss">:else</span> <span class="s">"grey"</span><span class="p">)]</span>
+    <span class="p">[</span><span class="ss">:li</span> <span class="p">{</span><span class="ss">:class</span> <span class="p">(</span><span class="nb">str </span><span class="s">"share-bar "</span> <span class="nv">class</span><span class="p">)</span> <span class="ss">:style</span> <span class="p">(</span><span class="nb">str </span><span class="s">"width:"</span> <span class="p">(</span><span class="nb">int </span><span class="p">(</span><span class="nb">* </span><span class="p">(</span><span class="nb">/ </span> <span class="nv">share</span> <span class="mi">100</span><span class="p">)</span> <span class="mi">180</span><span class="p">))</span> <span class="s">"px;"</span><span class="p">)}]</span>
+  <span class="p">))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -162,12 +169,13 @@
 <div class="outline-text-1" id="text-7">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn htmlize-topics [topics]
-  (let [sorted-topics (sort-by val &gt; topics)]
-    [:ul {:class "topic-distribution"}
-  (for [[t share] sorted-topics]
-    [:li [:ul (distribution-bar t share) [:li {:class "topic-title"} (tidy-tags t)] [:li {:class "topic-share"} (str (if (integer? share) share (format "%.2f" (float share))) "%")]]])]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">htmlize-topics</span> <span class="p">[</span><span class="nv">topics</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">sorted-topics</span> <span class="p">(</span><span class="nb">sort-by val &gt; </span><span class="nv">topics</span><span class="p">)]</span>
+    <span class="p">[</span><span class="ss">:ul</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"topic-distribution"</span><span class="p">}</span>
+  <span class="p">(</span><span class="nb">for </span><span class="p">[[</span><span class="nv">t</span> <span class="nv">share</span><span class="p">]</span> <span class="nv">sorted-topics</span><span class="p">]</span>
+    <span class="p">[</span><span class="ss">:li</span> <span class="p">[</span><span class="ss">:ul</span> <span class="p">(</span><span class="nf">distribution-bar</span> <span class="nv">t</span> <span class="nv">share</span><span class="p">)</span> <span class="p">[</span><span class="ss">:li</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"topic-title"</span><span class="p">}</span> <span class="p">(</span><span class="nf">tidy-tags</span> <span class="nv">t</span><span class="p">)]</span> <span class="p">[</span><span class="ss">:li</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"topic-share"</span><span class="p">}</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">integer?</span> <span class="nv">share</span><span class="p">)</span> <span class="nv">share</span> <span class="p">(</span><span class="nf">format</span> <span class="s">"%.2f"</span> <span class="p">(</span><span class="nb">float </span><span class="nv">share</span><span class="p">)))</span> <span class="s">"%"</span><span class="p">)]]])]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>

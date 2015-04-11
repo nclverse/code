@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Namespaces</title>
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
+    <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section id="container">
+      <section id="sidebar"><nav id="main-nav">
+  <header id="title">
+    <img class="site-logo" alt="logo" src="http://nclverse.github.io/code/img/logo.svg" />
+    <div class="titles">
+      <span class="verse-title">NCL<strong>Verse</strong></span>
+      <ul class="docs-site">
+        <li><a class="active" href="http://nclverse.github.io/code">Code</a></li><li><a href="http://nclverse.github.io/dissertation">Dissertation</a></li><li><a href="http://nclverse.github.io/design">Design</a></li><li><a href="http://nclverse.github.io/help">Help</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="category">
+    <header class="category-title"><h1>apps<span class="count">234 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Architecture<span class="count">0 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/architecture/core-ideas.html">Core Ideas<span class="count">0</span></a></li></ul>
+      </li>
+      </ul><ul class="titles">
+      <li><a class="title-link">Exams<span class="count">234 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/leechness.html">Leechness<span class="count">24</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/gateway.html">Gateway<span class="count">56</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/handler.html">Handler<span class="count">18</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/home.html">Home<span class="count">56</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/layout.html">Layout<span class="count">39</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/apps/exams/transforms.html">Transforms<span class="count">41</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      </li>
+      </ul>
+  </div><div class="category">
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
+    <ul class="titles">
+      <li><a class="title-link active">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link active" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
+      </li>
+      </ul>
+  </div>
+
+</nav></section>
+      <section id="read-area"><article class="post">
+  <section class="content">
+<div id="outline-container-sec-1" class="outline-1">
+<h1 id="sec-1">Namespaces</h1>
+<div class="outline-text-1" id="text-1">
+<div class="org-src-container">
+
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">docs-gen.transform-test</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">clojure.test</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">docs-gen.transform</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-1">
+<h1 id="sec-2">Fixtures</h1>
+<div class="outline-text-1" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-2">
+<h2 id="sec-2-1">Main</h2>
+<div class="outline-text-2" id="text-2-1">
+<div class="org-src-container">
+
+<div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nb">root </span><span class="s">"http://nclverse.github.io"</span><span class="p">)</span>
+<span class="p">(</span><span class="k">def </span><span class="nv">subsite</span> <span class="s">"code"</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-2">
+<h2 id="sec-2-2">Navigation</h2>
+<div class="outline-text-2" id="text-2-2">
+<div class="org-src-container">
+
+<div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">fish</span> <span class="p">[{</span><span class="ss">:category</span> <span class="s">"Ocean"</span> <span class="ss">:title</span> <span class="s">"phish"</span> <span class="ss">:subtitle</span> <span class="s">"parrot"</span> <span class="ss">:loc</span> <span class="mi">3</span><span class="p">}</span> <span class="p">{</span><span class="ss">:category</span> <span class="s">"Ocean"</span> <span class="ss">:title</span> <span class="s">"phish"</span> <span class="ss">:subtitle</span> <span class="s">"pearl blue"</span> <span class="ss">:loc</span> <span class="mi">2</span><span class="p">}])</span>
+</pre></div>
+
+</div>
+
+<div class="org-src-container">
+
+<div class="highlight"><pre><span class="p">(</span><span class="nf">deftest</span> <span class="nv">url-transform-helper-test</span>
+  <span class="p">(</span><span class="nf">testing</span> <span class="s">"Inline URL transform"</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">ready-url-transform</span> <span class="p">(</span><span class="nb">partial </span><span class="nv">url-transform</span> <span class="nb">root </span><span class="nv">subsite</span><span class="p">)]</span>
+      <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">ready-url-transform</span> <span class="s">"http://hello.com"</span><span class="p">)</span> <span class="s">"http://hello.com"</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">ready-url-transform</span> <span class="s">"./hello"</span><span class="p">)</span> <span class="p">(</span><span class="nb">str root </span><span class="s">"/"</span> <span class="nv">subsite</span> <span class="s">"/hello"</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">ready-url-transform</span> <span class="s">"/hello"</span><span class="p">)</span> <span class="p">(</span><span class="nb">str root </span><span class="s">"/hello"</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">ready-url-transform</span> <span class="s">"bleh"</span><span class="p">)</span> <span class="s">"Malformed"</span><span class="p">)))))</span>
+
+<span class="p">(</span><span class="nf">deftest</span> <span class="nv">nav-helpers</span>
+<span class="p">(</span><span class="nf">testing</span> <span class="s">"Matches"</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">matches</span> <span class="ss">:title</span> <span class="s">"phish"</span> <span class="p">[{</span><span class="ss">:category</span> <span class="s">"Ocean"</span> <span class="ss">:title</span> <span class="s">"phish"</span><span class="p">}])</span> <span class="p">(</span><span class="nb">list </span><span class="p">{</span><span class="ss">:category</span> <span class="s">"Ocean"</span>, <span class="ss">:title</span> <span class="s">"phish"</span><span class="p">})))</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">matches</span> <span class="ss">:title</span> <span class="s">"phish"</span> <span class="nv">fish</span><span class="p">)</span> <span class="nv">fish</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">testing</span> <span class="s">"Sum"</span>
+<span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="p">(</span><span class="nf">sum-count</span> <span class="ss">:loc</span> <span class="ss">:title</span> <span class="s">"phish"</span> <span class="nv">fish</span><span class="p">)</span> <span class="mi">5</span><span class="p">)))))</span>
+</pre></div>
+
+</div>
+
+
+
+<p>
+;(def test-page "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;a href=\"./punk.html\"&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def test-page-2 "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;a href=\"/punk.html\"&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def test-page-without-href "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;a&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def test-page-with-link "&lt;html&gt;&lt;head&gt;&lt;link href=\"./css/styles.css\"/&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;a href=\"/punk.html\"&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def test-page-with-image "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;img src=\"/punk.html\" /&gt;Dirty Harry&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;
+;(def transformed-page "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;a href=\"<a href="http://nclverse.github.io/code/punk.html">http://nclverse.github.io/code/punk.html</a>\"&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def transformed-page-2 "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;a href=\"<a href="http://nclverse.github.io/punk.html">http://nclverse.github.io/punk.html</a>\"&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def transformed-page-with-link "&lt;html&gt;&lt;head&gt;&lt;link href=\"<a href="http://nclverse.github.io/code/css/styles.css">http://nclverse.github.io/code/css/styles.css</a>\" /&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;a href=\"<a href="http://nclverse.github.io/punk.html">http://nclverse.github.io/punk.html</a>\"&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def transformed-page-without-href "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;a&gt;Dirty Harry&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;")
+;(def transformed-page-with-image "&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;img src=\"<a href="http://nclverse.github.io/punk.html">http://nclverse.github.io/punk.html</a>\" /&gt;Dirty Harry&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;;"))))
+;  (testing "Inline Root Test")
+;  (is (= (attach-root root subsite test-page) transformed-page))
+;  (is (= (attach-root root subsite test-page-2) transformed-page-2))
+;  (is (= (attach-root root subsite test-page-without-href) transformed-page-without-href))
+;  (is (= (attach-root root subsite test-page-with-link) transformed-page-with-link))
+;  (is (= (attach-root root subsite test-page-with-image) transformed-page-with-image)))
+;
+;(deftest navtest
+;  (testing "Presence of all"
+;    (is (= (has-all-keys? {:category "nil" :subtitle "this" :title "false"}) true))
+;    (is (= (has-all-keys? {:category "nil"}) false))))
+;)
+</p>
+</div>
+</div>
+</div>
+</section>
+
+</article></section>
+    </section>
+  </body>
+
+</html>

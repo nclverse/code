@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Table of Contents</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -67,15 +68,16 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns exam-vault.routes.home
-  (:require [compojure.core :refer :all]
-	    [exam-vault.views.layout :as layout]
-	    [exam-vault.views.transforms :as reshape]
-	    [exam-vault.models.data :as data]
-	    [exam-vault.models.accessors :as collect]
-	    [ring.util.response :as resp]
-	    [exam-vault.models.calc :as calc]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">exam-vault.routes.home</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">compojure.core</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.views.layout</span> <span class="ss">:as</span> <span class="nv">layout</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.views.transforms</span> <span class="ss">:as</span> <span class="nv">reshape</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.models.data</span> <span class="ss">:as</span> <span class="nv">data</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.models.accessors</span> <span class="ss">:as</span> <span class="nv">collect</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">ring.util.response</span> <span class="ss">:as</span> <span class="nv">resp</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.models.calc</span> <span class="ss">:as</span> <span class="nv">calc</span><span class="p">]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -97,11 +99,12 @@ More details on the functionalities available here:
 <div class="outline-text-1" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn sidebar [modules selection]
-  [:nav {:id "module-selector" :class "sidebar"}
-   [:ul [:li {:class "stage-selection"} [:a "Stage 3"]]
-    (reshape/listify (collect/module-data modules [:code :module]) selection)]])
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">sidebar</span> <span class="p">[</span><span class="nv">modules</span> <span class="nv">selection</span><span class="p">]</span>
+  <span class="p">[</span><span class="ss">:nav</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"module-selector"</span> <span class="ss">:class</span> <span class="s">"sidebar"</span><span class="p">}</span>
+   <span class="p">[</span><span class="ss">:ul</span> <span class="p">[</span><span class="ss">:li</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"stage-selection"</span><span class="p">}</span> <span class="p">[</span><span class="ss">:a</span> <span class="s">"Stage 3"</span><span class="p">]]</span>
+    <span class="p">(</span><span class="nf">reshape/listify</span> <span class="p">(</span><span class="nf">collect/module-data</span> <span class="nv">modules</span> <span class="p">[</span><span class="ss">:code</span> <span class="ss">:module</span><span class="p">])</span> <span class="nv">selection</span><span class="p">)]])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -111,8 +114,9 @@ More details on the functionalities available here:
 <div class="outline-text-1" id="text-4">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn selected-modules [module-list] (collect/get-modules module-list))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">selected-modules</span> <span class="p">[</span><span class="nv">module-list</span><span class="p">]</span> <span class="p">(</span><span class="nf">collect/get-modules</span> <span class="nv">module-list</span><span class="p">))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -126,10 +130,11 @@ Creates a topic map by zipping together zeroes
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn topics-map [module]
-  (let [topics (:topics module)]
-    (zipmap topics (repeat 0))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">topics-map</span> <span class="p">[</span><span class="nv">module</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">topics</span> <span class="p">(</span><span class="ss">:topics</span> <span class="nv">module</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nb">zipmap </span><span class="nv">topics</span> <span class="p">(</span><span class="nb">repeat </span><span class="mi">0</span><span class="p">))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -139,11 +144,12 @@ Creates a topic map by zipping together zeroes
 <div class="outline-text-1" id="text-6">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn display-topics [module year]
-  [:aside {:class "topic-selector"}
-   [:h1 (str "Topic Share in ") [:strong year]]
-   (reshape/htmlize-topics (merge-with + (topics-map module) (calc/topic-map (collect/select-questions (:papers module) year))))])
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">display-topics</span> <span class="p">[</span><span class="nv">module</span> <span class="nv">year</span><span class="p">]</span>
+  <span class="p">[</span><span class="ss">:aside</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"topic-selector"</span><span class="p">}</span>
+   <span class="p">[</span><span class="ss">:h1</span> <span class="p">(</span><span class="nb">str </span><span class="s">"Topic Share in "</span><span class="p">)</span> <span class="p">[</span><span class="ss">:strong</span> <span class="nv">year</span><span class="p">]]</span>
+   <span class="p">(</span><span class="nf">reshape/htmlize-topics</span> <span class="p">(</span><span class="nb">merge-with + </span><span class="p">(</span><span class="nf">topics-map</span> <span class="nv">module</span><span class="p">)</span> <span class="p">(</span><span class="nf">calc/topic-map</span> <span class="p">(</span><span class="nf">collect/select-questions</span> <span class="p">(</span><span class="ss">:papers</span> <span class="nv">module</span><span class="p">)</span> <span class="nv">year</span><span class="p">))))])</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -158,27 +164,28 @@ representation for the sidebar.
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn htmlize-module [mod year]
-  (let [{:keys [code module papers]} mod
-	years (map :year papers)]
-    [:section {:class "module-view"}
-     [:nav {:class "years segmented-control"} (reshape/htmlize-years code year years)]
-     [:div {:class "content-area"}
-      [:div {:class "scrollable-area"}
-       (reshape/htmlize-papers (collect/select-questions papers year))]
-      (display-topics mod year)]]))
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">htmlize-module</span> <span class="p">[</span><span class="nv">mod</span> <span class="nv">year</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[{</span><span class="ss">:keys</span> <span class="p">[</span><span class="nv">code</span> <span class="nv">module</span> <span class="nv">papers</span><span class="p">]}</span> <span class="nv">mod</span>
+	<span class="nv">years</span> <span class="p">(</span><span class="nb">map </span><span class="ss">:year</span> <span class="nv">papers</span><span class="p">)]</span>
+    <span class="p">[</span><span class="ss">:section</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"module-view"</span><span class="p">}</span>
+     <span class="p">[</span><span class="ss">:nav</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"years segmented-control"</span><span class="p">}</span> <span class="p">(</span><span class="nf">reshape/htmlize-years</span> <span class="nv">code</span> <span class="nv">year</span> <span class="nv">years</span><span class="p">)]</span>
+     <span class="p">[</span><span class="ss">:div</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"content-area"</span><span class="p">}</span>
+      <span class="p">[</span><span class="ss">:div</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"scrollable-area"</span><span class="p">}</span>
+       <span class="p">(</span><span class="nf">reshape/htmlize-papers</span> <span class="p">(</span><span class="nf">collect/select-questions</span> <span class="nv">papers</span> <span class="nv">year</span><span class="p">))]</span>
+      <span class="p">(</span><span class="nf">display-topics</span> <span class="nv">mod</span> <span class="nv">year</span><span class="p">)]]))</span>
 
-(defn get-years [module] (map :year (:papers module)))
+<span class="p">(</span><span class="kd">defn </span><span class="nv">get-years</span> <span class="p">[</span><span class="nv">module</span><span class="p">]</span> <span class="p">(</span><span class="nb">map </span><span class="ss">:year</span> <span class="p">(</span><span class="ss">:papers</span> <span class="nv">module</span><span class="p">)))</span>
 
-(defn display-modules ([module modules]
-			 (let [selection (collect/select-module module modules)]
-			   (display-modules module modules (str (first (get-years selection))))))
-  ([module modules year]
-     (let [selection (collect/select-module module modules)]
-       (layout/common
-	(sidebar modules module)
-	(htmlize-module selection year)))))
-</pre>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">display-modules</span> <span class="p">([</span><span class="nv">module</span> <span class="nv">modules</span><span class="p">]</span>
+			 <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">selection</span> <span class="p">(</span><span class="nf">collect/select-module</span> <span class="nv">module</span> <span class="nv">modules</span><span class="p">)]</span>
+			   <span class="p">(</span><span class="nf">display-modules</span> <span class="nv">module</span> <span class="nv">modules</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="p">(</span><span class="nf">get-years</span> <span class="nv">selection</span><span class="p">))))))</span>
+  <span class="p">([</span><span class="nv">module</span> <span class="nv">modules</span> <span class="nv">year</span><span class="p">]</span>
+     <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">selection</span> <span class="p">(</span><span class="nf">collect/select-module</span> <span class="nv">module</span> <span class="nv">modules</span><span class="p">)]</span>
+       <span class="p">(</span><span class="nf">layout/common</span>
+	<span class="p">(</span><span class="nf">sidebar</span> <span class="nv">modules</span> <span class="nv">module</span><span class="p">)</span>
+	<span class="p">(</span><span class="nf">htmlize-module</span> <span class="nv">selection</span> <span class="nv">year</span><span class="p">)))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -188,23 +195,24 @@ representation for the sidebar.
 <div class="outline-text-1" id="text-8">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defroutes home-routes
-  (GET "/" {cookies :cookies}
-       (if (cookies "modules") (resp/redirect "/modules") (resp/redirect "/login")))
-  (context "/modules" {cookies :cookies}
-	   (if-let [mods (:value (cookies "modules"))]
-	     (let  [module-list (clojure.string/split mods #" ")
-		    modules (selected-modules module-list)
-		    username (:value (cookies "name"))
-		    id (:value (cookies "id"))]
-	       (routes
-		(GET "/" [] (display-modules (:code (first modules)) modules))
-		(context "/:module" [module]
-			 (GET "/" [] (display-modules module modules))
-			 (GET "/:year" [year] (display-modules module modules year)))))
-	     (routes
-	      (GET "/*" [] (resp/redirect "/login"))))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="nf">defroutes</span> <span class="nv">home-routes</span>
+  <span class="p">(</span><span class="nf">GET</span> <span class="s">"/"</span> <span class="p">{</span><span class="nv">cookies</span> <span class="ss">:cookies</span><span class="p">}</span>
+       <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">cookies</span> <span class="s">"modules"</span><span class="p">)</span> <span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/modules"</span><span class="p">)</span> <span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/login"</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nf">context</span> <span class="s">"/modules"</span> <span class="p">{</span><span class="nv">cookies</span> <span class="ss">:cookies</span><span class="p">}</span>
+	   <span class="p">(</span><span class="nb">if-let </span><span class="p">[</span><span class="nv">mods</span> <span class="p">(</span><span class="ss">:value</span> <span class="p">(</span><span class="nf">cookies</span> <span class="s">"modules"</span><span class="p">))]</span>
+	     <span class="p">(</span><span class="k">let </span> <span class="p">[</span><span class="nv">module-list</span> <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nv">mods</span> <span class="o">#</span><span class="s">" "</span><span class="p">)</span>
+		    <span class="nv">modules</span> <span class="p">(</span><span class="nf">selected-modules</span> <span class="nv">module-list</span><span class="p">)</span>
+		    <span class="nv">username</span> <span class="p">(</span><span class="ss">:value</span> <span class="p">(</span><span class="nf">cookies</span> <span class="s">"name"</span><span class="p">))</span>
+		    <span class="nv">id</span> <span class="p">(</span><span class="ss">:value</span> <span class="p">(</span><span class="nf">cookies</span> <span class="s">"id"</span><span class="p">))]</span>
+	       <span class="p">(</span><span class="nf">routes</span>
+		<span class="p">(</span><span class="nf">GET</span> <span class="s">"/"</span> <span class="p">[]</span> <span class="p">(</span><span class="nf">display-modules</span> <span class="p">(</span><span class="ss">:code</span> <span class="p">(</span><span class="nb">first </span><span class="nv">modules</span><span class="p">))</span> <span class="nv">modules</span><span class="p">))</span>
+		<span class="p">(</span><span class="nf">context</span> <span class="s">"/:module"</span> <span class="p">[</span><span class="nv">module</span><span class="p">]</span>
+			 <span class="p">(</span><span class="nf">GET</span> <span class="s">"/"</span> <span class="p">[]</span> <span class="p">(</span><span class="nf">display-modules</span> <span class="nv">module</span> <span class="nv">modules</span><span class="p">))</span>
+			 <span class="p">(</span><span class="nf">GET</span> <span class="s">"/:year"</span> <span class="p">[</span><span class="nv">year</span><span class="p">]</span> <span class="p">(</span><span class="nf">display-modules</span> <span class="nv">module</span> <span class="nv">modules</span> <span class="nv">year</span><span class="p">)))))</span>
+	     <span class="p">(</span><span class="nf">routes</span>
+	      <span class="p">(</span><span class="nf">GET</span> <span class="s">"/*"</span> <span class="p">[]</span> <span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/login"</span><span class="p">))))))</span>
+</pre></div>
+
 </div>
 </div>
 </div>

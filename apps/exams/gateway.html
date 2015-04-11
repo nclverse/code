@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Table of Contents</title>
-<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700|Inconsolata" rel="stylesheet" type="text/css" />
+
     <link href="http://nclverse.github.io/code/css/styles.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -30,17 +31,17 @@
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>utilities<span class="count">248 LOC</span></h1></header>
+    <header class="category-title"><h1>utilities<span class="count">269 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">248 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">82</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">118</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">269 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/architecture.html">Architecture<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/overview.html">Overview<span class="count">0</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/collect.html">Collect<span class="count">48</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/transform.html">Transform<span class="count">95</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/render.html">Render<span class="count">126</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/utilities/docs-generator/roadmap.html">Roadmap<span class="count">0</span></a></li></ul>
       </li>
       </ul>
   </div><div class="category">
-    <header class="category-title"><h1>tests<span class="count">47 LOC</span></h1></header>
+    <header class="category-title"><h1>tests<span class="count">95 LOC</span></h1></header>
     <ul class="titles">
-      <li><a class="title-link">Docs Generator<span class="count">47 LOC</span></a>
-        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">43</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">4</span></a></li></ul>
+      <li><a class="title-link">Docs Generator<span class="count">95 LOC</span></a>
+        <ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/collect.html">Collect<span class="count">45</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/transform.html">Transform<span class="count">20</span></a></li></ul><ul class="subtitles"><li> <a class="subtitle-link" href="http://nclverse.github.io/code/tests/docs-generator/render.html">Render<span class="count">30</span></a></li></ul>
       </li>
       </ul>
   </div>
@@ -70,14 +71,15 @@
 <div class="outline-text-1" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(ns exam-vault.routes.gateway
-  (:require [compojure.core :refer :all]
-	    [ring.util.response :as resp]
-	    [net.cgrand.enlive-html :as enlive]
-	    [hiccup.form :refer [form-to text-field password-field submit-button]]
-	    [exam-vault.leechness :as leech]
-	    [exam-vault.views.layout :as layout]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">ns </span><span class="nv">exam-vault.routes.gateway</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">compojure.core</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">ring.util.response</span> <span class="ss">:as</span> <span class="nv">resp</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">net.cgrand.enlive-html</span> <span class="ss">:as</span> <span class="nv">enlive</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">hiccup.form</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">form-to</span> <span class="nv">text-field</span> <span class="nv">password-field</span> <span class="nv">submit-button</span><span class="p">]]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.leechness</span> <span class="ss">:as</span> <span class="nv">leech</span><span class="p">]</span>
+	    <span class="p">[</span><span class="nv">exam-vault.views.layout</span> <span class="ss">:as</span> <span class="nv">layout</span><span class="p">]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -87,8 +89,9 @@
 <div class="outline-text-1" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(def login-regex #"(?i)[A-Z]\d{7}")
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">login-regex</span> <span class="o">#</span><span class="s">"(?i)[A-Z]\d{7}"</span><span class="p">)</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -98,17 +101,18 @@
 <div class="outline-text-1" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn gateway-display []
-  (layout/login [:section {:class "gateway"}
-		 [:header
-		  [:div {:class "verse-logo"} "logo"]
-		  [:h1 "Welcome to " [:strong "NCLVerse"]]]
-		 (form-to
-		  [:post "/login"]
-		  (text-field {:class "username" :placeholder "NCL StudentID"} "username")
-		  (password-field {:class "password" :placeholder "Password"} "password")
-		  (submit-button "Login"))]))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">gateway-display</span> <span class="p">[]</span>
+  <span class="p">(</span><span class="nf">layout/login</span> <span class="p">[</span><span class="ss">:section</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"gateway"</span><span class="p">}</span>
+		 <span class="p">[</span><span class="ss">:header</span>
+		  <span class="p">[</span><span class="ss">:div</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"verse-logo"</span><span class="p">}</span> <span class="s">"logo"</span><span class="p">]</span>
+		  <span class="p">[</span><span class="ss">:h1</span> <span class="s">"Welcome to "</span> <span class="p">[</span><span class="ss">:strong</span> <span class="s">"NCLVerse"</span><span class="p">]]]</span>
+		 <span class="p">(</span><span class="nf">form-to</span>
+		  <span class="p">[</span><span class="ss">:post</span> <span class="s">"/login"</span><span class="p">]</span>
+		  <span class="p">(</span><span class="nf">text-field</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"username"</span> <span class="ss">:placeholder</span> <span class="s">"NCL StudentID"</span><span class="p">}</span> <span class="s">"username"</span><span class="p">)</span>
+		  <span class="p">(</span><span class="nf">password-field</span> <span class="p">{</span><span class="ss">:class</span> <span class="s">"password"</span> <span class="ss">:placeholder</span> <span class="s">"Password"</span><span class="p">}</span> <span class="s">"password"</span><span class="p">)</span>
+		  <span class="p">(</span><span class="nf">submit-button</span> <span class="s">"Login"</span><span class="p">))]))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -118,9 +122,10 @@
 <div class="outline-text-1" id="text-4">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn scraper [name pass]
-  (leech/ness name pass))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">scraper</span> <span class="p">[</span><span class="nb">name </span><span class="nv">pass</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">leech/ness</span> <span class="nb">name </span><span class="nv">pass</span><span class="p">))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -130,13 +135,14 @@
 <div class="outline-text-1" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn get-credentials [page]
-  (let [area (enlive/select page [:#uname :span])
-	details (apply str (some :content area))
-	student-id (second (re-find #"\((\d+)\)" details))
-	name (second (re-find #"(.*)\(" details))]
-    {:id student-id :name (clojure.string/trim name)}))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">get-credentials</span> <span class="p">[</span><span class="nv">page</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">area</span> <span class="p">(</span><span class="nf">enlive/select</span> <span class="nv">page</span> <span class="p">[</span><span class="err">:</span><span class="o">#</span><span class="nv">uname</span> <span class="ss">:span</span><span class="p">])</span>
+	<span class="nv">details</span> <span class="p">(</span><span class="nb">apply str </span><span class="p">(</span><span class="nb">some </span><span class="ss">:content</span> <span class="nv">area</span><span class="p">))</span>
+	<span class="nv">student-id</span> <span class="p">(</span><span class="nb">second </span><span class="p">(</span><span class="nb">re-find </span><span class="o">#</span><span class="s">"\((\d+)\)"</span> <span class="nv">details</span><span class="p">))</span>
+	<span class="nb">name </span><span class="p">(</span><span class="nb">second </span><span class="p">(</span><span class="nb">re-find </span><span class="o">#</span><span class="s">"(.*)\("</span> <span class="nv">details</span><span class="p">))]</span>
+    <span class="p">{</span><span class="ss">:id</span> <span class="nv">student-id</span> <span class="ss">:name</span> <span class="p">(</span><span class="nf">clojure.string/trim</span> <span class="nv">name</span><span class="p">)}))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -146,19 +152,21 @@
 <div class="outline-text-1" id="text-6">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn get-modules [page]
-  (let [modules (mapcat :content (enlive/select (enlive/select page [:#topmenu]) [:a]))]
-    {:modules (clojure.string/join " " modules)}))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">get-modules</span> <span class="p">[</span><span class="nv">page</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">modules</span> <span class="p">(</span><span class="nb">mapcat </span><span class="ss">:content</span> <span class="p">(</span><span class="nf">enlive/select</span> <span class="p">(</span><span class="nf">enlive/select</span> <span class="nv">page</span> <span class="p">[</span><span class="err">:</span><span class="o">#</span><span class="nv">topmenu</span><span class="p">])</span> <span class="p">[</span><span class="ss">:a</span><span class="p">]))]</span>
+    <span class="p">{</span><span class="ss">:modules</span> <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">" "</span> <span class="nv">modules</span><span class="p">)}))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn exam-scrape [id password]
-  (if-let [page (enlive/html-snippet (:body (:response (scraper id password))))]
-    (if (and (get-credentials page) (get-modules page)) 
-      (merge (get-credentials page) (get-modules page)) false) false))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">exam-scrape</span> <span class="p">[</span><span class="nv">id</span> <span class="nv">password</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">if-let </span><span class="p">[</span><span class="nv">page</span> <span class="p">(</span><span class="nf">enlive/html-snippet</span> <span class="p">(</span><span class="ss">:body</span> <span class="p">(</span><span class="ss">:response</span> <span class="p">(</span><span class="nf">scraper</span> <span class="nv">id</span> <span class="nv">password</span><span class="p">))))]</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nf">get-credentials</span> <span class="nv">page</span><span class="p">)</span> <span class="p">(</span><span class="nf">get-modules</span> <span class="nv">page</span><span class="p">))</span> 
+      <span class="p">(</span><span class="nb">merge </span><span class="p">(</span><span class="nf">get-credentials</span> <span class="nv">page</span><span class="p">)</span> <span class="p">(</span><span class="nf">get-modules</span> <span class="nv">page</span><span class="p">))</span> <span class="nv">false</span><span class="p">)</span> <span class="nv">false</span><span class="p">))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -168,9 +176,10 @@
 <div class="outline-text-1" id="text-7">
 <div class="org-src-container">
 
-<pre class="src src-clojure">When there's a valid login, but the app is not yet ready, show an alert message.
-(defn valid? [username pass] (re-matches login-regex username))
-</pre>
+<div class="highlight"><pre><span class="nv">When</span> <span class="nv">there</span><span class="ss">'s</span> <span class="nv">a</span> <span class="nv">valid</span> <span class="nv">login</span>, <span class="nv">but</span> <span class="nv">the</span> <span class="nv">app</span> <span class="nv">is</span> <span class="nb">not </span><span class="nv">yet</span> <span class="nv">ready</span>, <span class="nv">show</span> <span class="nv">an</span> <span class="nv">alert</span> <span class="nv">message.</span>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">valid?</span> <span class="p">[</span><span class="nv">username</span> <span class="nv">pass</span><span class="p">]</span> <span class="p">(</span><span class="nb">re-matches </span><span class="nv">login-regex</span> <span class="nv">username</span><span class="p">))</span>
+</pre></div>
+
 </div>
 </div>
 
@@ -179,53 +188,59 @@
 <div class="outline-text-2" id="text-7-1">
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn demo? [username pass] (and (= username "demo") (= pass "please")))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">demo?</span> <span class="p">[</span><span class="nv">username</span> <span class="nv">pass</span><span class="p">]</span> <span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">= </span><span class="nv">username</span> <span class="s">"demo"</span><span class="p">)</span> <span class="p">(</span><span class="nb">= </span><span class="nv">pass</span> <span class="s">"please"</span><span class="p">)))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn in? [cookies] (let [verify #(contains? cookies %)]
-		      (and (verify "id") (verify "name") (verify "modules"))))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">in?</span> <span class="p">[</span><span class="nv">cookies</span><span class="p">]</span> <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">verify</span> <span class="o">#</span><span class="p">(</span><span class="nb">contains? </span><span class="nv">cookies</span> <span class="nv">%</span><span class="p">)]</span>
+		      <span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nf">verify</span> <span class="s">"id"</span><span class="p">)</span> <span class="p">(</span><span class="nf">verify</span> <span class="s">"name"</span><span class="p">)</span> <span class="p">(</span><span class="nf">verify</span> <span class="s">"modules"</span><span class="p">))))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(def demo-response (assoc (resp/redirect "/") :cookies {"id" {:value "B0123456"} "name" {:value "The Dude"} "modules" {:value "CSC3221 CSC3223 CSC3324 CSC3423 CSC3621"}}))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">demo-response</span> <span class="p">(</span><span class="nb">assoc </span><span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/"</span><span class="p">)</span> <span class="ss">:cookies</span> <span class="p">{</span><span class="s">"id"</span> <span class="p">{</span><span class="ss">:value</span> <span class="s">"B0123456"</span><span class="p">}</span> <span class="s">"name"</span> <span class="p">{</span><span class="ss">:value</span> <span class="s">"The Dude"</span><span class="p">}</span> <span class="s">"modules"</span> <span class="p">{</span><span class="ss">:value</span> <span class="s">"CSC3221 CSC3223 CSC3324 CSC3423 CSC3621"</span><span class="p">}}))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn login [username password cookies]
-  (cond (demo? username password) demo-response
-	(valid? username password)
-	(let [ness-data (exam-scrape username password)] (assoc (resp/redirect "/") :cookies ness-data))
-	:else (gateway-display)))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">login</span> <span class="p">[</span><span class="nv">username</span> <span class="nv">password</span> <span class="nv">cookies</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">cond </span><span class="p">(</span><span class="nf">demo?</span> <span class="nv">username</span> <span class="nv">password</span><span class="p">)</span> <span class="nv">demo-response</span>
+	<span class="p">(</span><span class="nf">valid?</span> <span class="nv">username</span> <span class="nv">password</span><span class="p">)</span>
+	<span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">ness-data</span> <span class="p">(</span><span class="nf">exam-scrape</span> <span class="nv">username</span> <span class="nv">password</span><span class="p">)]</span> <span class="p">(</span><span class="nb">assoc </span><span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/"</span><span class="p">)</span> <span class="ss">:cookies</span> <span class="nv">ness-data</span><span class="p">))</span>
+	<span class="ss">:else</span> <span class="p">(</span><span class="nf">gateway-display</span><span class="p">)))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">(defn logout [req]
-  (let [clear-value {:value "" :max-age 0}]
-    (update-in (resp/redirect "/login") [:cookies] merge {"id" clear-value "name" clear-value "modules" clear-value})))
-</pre>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">logout</span> <span class="p">[</span><span class="nv">req</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">clear-value</span> <span class="p">{</span><span class="ss">:value</span> <span class="s">""</span> <span class="ss">:max-age</span> <span class="mi">0</span><span class="p">}]</span>
+    <span class="p">(</span><span class="nf">update-in</span> <span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/login"</span><span class="p">)</span> <span class="p">[</span><span class="ss">:cookies</span><span class="p">]</span> <span class="nb">merge </span><span class="p">{</span><span class="s">"id"</span> <span class="nv">clear-value</span> <span class="s">"name"</span> <span class="nv">clear-value</span> <span class="s">"modules"</span> <span class="nv">clear-value</span><span class="p">})))</span>
+</pre></div>
+
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-clojure">Find a way to flash alerts when the login is wrong
-(defroutes gateway-routes
-  (GET "/login" {cookies :cookies} (if (in? cookies) (resp/redirect "/") (gateway-display)))
-  (POST "/login" [username password :as {cookies :cookies}]
-	(cond (demo? username password) demo-response
-	      (valid? username password)
-	      (let [ness-data (exam-scrape username password)] (assoc (resp/redirect "/") :cookies ness-data))
-	      :else (gateway-display)))
-  (POST "/logout" req (logout req)))
-</pre>
+<div class="highlight"><pre><span class="nv">Find</span> <span class="nv">a</span> <span class="nv">way</span> <span class="nv">to</span> <span class="nv">flash</span> <span class="nv">alerts</span> <span class="nb">when </span><span class="nv">the</span> <span class="nv">login</span> <span class="nv">is</span> <span class="nv">wrong</span>
+<span class="p">(</span><span class="nf">defroutes</span> <span class="nv">gateway-routes</span>
+  <span class="p">(</span><span class="nf">GET</span> <span class="s">"/login"</span> <span class="p">{</span><span class="nv">cookies</span> <span class="ss">:cookies</span><span class="p">}</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">in?</span> <span class="nv">cookies</span><span class="p">)</span> <span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/"</span><span class="p">)</span> <span class="p">(</span><span class="nf">gateway-display</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nf">POST</span> <span class="s">"/login"</span> <span class="p">[</span><span class="nv">username</span> <span class="nv">password</span> <span class="ss">:as</span> <span class="p">{</span><span class="nv">cookies</span> <span class="ss">:cookies</span><span class="p">}]</span>
+	<span class="p">(</span><span class="nb">cond </span><span class="p">(</span><span class="nf">demo?</span> <span class="nv">username</span> <span class="nv">password</span><span class="p">)</span> <span class="nv">demo-response</span>
+	      <span class="p">(</span><span class="nf">valid?</span> <span class="nv">username</span> <span class="nv">password</span><span class="p">)</span>
+	      <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">ness-data</span> <span class="p">(</span><span class="nf">exam-scrape</span> <span class="nv">username</span> <span class="nv">password</span><span class="p">)]</span> <span class="p">(</span><span class="nb">assoc </span><span class="p">(</span><span class="nf">resp/redirect</span> <span class="s">"/"</span><span class="p">)</span> <span class="ss">:cookies</span> <span class="nv">ness-data</span><span class="p">))</span>
+	      <span class="ss">:else</span> <span class="p">(</span><span class="nf">gateway-display</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nf">POST</span> <span class="s">"/logout"</span> <span class="nv">req</span> <span class="p">(</span><span class="nf">logout</span> <span class="nv">req</span><span class="p">)))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
